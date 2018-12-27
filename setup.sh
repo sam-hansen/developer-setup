@@ -3,8 +3,6 @@
 # desktop only: install terminal from https://hyper.is/#installation
 # wget https://releases.hyper.is/download/AppImage
 
-
-
 #install zsh
 sudo apt install -y zsh;
 chsh -s /bin/zsh
