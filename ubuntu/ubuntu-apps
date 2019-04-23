@@ -1,112 +1,100 @@
-a11y-profile-manager - Accessibility Profile Manager - Command-line utility
-a11y-profile-manager-indicator - Accessibility Profile Manager - Unity desktop indicator
-acpi-support - scripts for handling many ACPI events
-acpid - Advanced Configuration and Power Interface event daemon
-activity-log-manager - blacklist configuration user interface for Zeitgeist
-adapta-gtk-theme - Adapta Gtk+ Theme
-adduser - add and remove users and groups
-adobe-flashplugin - Adobe Flash Player plugin
-adwaita-icon-theme-full - default icon theme of GNOME
-aircrack-ng - wireless WEP/WPA cracking utilities
-ajenti - Server administration web interface
-akiee - A Markdown-based task manager for hackers and people who build stuff.
-alien - convert and install rpm and other packages
-alsa-base - ALSA driver configuration files
-alsa-utils - Utilities for configuring and using ALSA
-anacron - cron-like program that doesn't go by time
-app-install-data-partner - Application Installer (data files for partner applications/repositories)
-apparmor-easyprof-ubuntu - AppArmor easyprof templates for Ubuntu
-apport-gtk - GTK+ frontend for the apport crash report system
-apt - commandline package manager
-apt-transport-https - Transitional package: curl-https download transport for APT
-apt-utils - package management related utility programs
-aptik - Utility to backup and restore PPAs and packages.
-arcticfox-config - Configuration Tool for Vape Battery Mods with Arcticfox Firmware. Works on MacOS and Linux.
-arcticfox-monitor - A simple device monitoring tool for vape devices with Arcticfox firmware
-at-spi2-core - Assistive Technology Service Provider Interface (dbus core)
-atom - A hackable text editor for the 21st Century.
-atom-beta - A hackable text editor for the 21st Century.
-avahi-autoipd - Avahi IPv4LL network address configuration daemon
-avahi-daemon - Avahi mDNS/DNS-SD daemon
-baobab - GNOME disk usage analyzer
-base-files - Debian base system miscellaneous files
-base-passwd - Debian base system master password and group files
-bash - GNU Bourne Again SHell
-bc - GNU bc arbitrary precision calculator language
-bluez - Bluetooth tools and daemons
-bluez-cups - Bluetooth printer driver for CUPS
-branding-ubuntu - Replacement artwork with Ubuntu branding
-brltty - Access software for a blind person using a braille display
-bsdutils - basic utilities from 4.4BSD-Lite
-build-essential - Informational list of build-essential packages
-busybox-initramfs - Standalone shell setup for initramfs
-bzip2 - high-quality block-sorting file compressor - utilities
-ca-certificates - Common CA certificates
-ccd2iso - Converter from CloneCD disc image format to standard ISO
-cdemu-client - Command-line client to control CDEmu daemon
-chrome-gnome-shell - GNOME Shell extensions integration for web browsers
-cm-x86 - Android-x86 - Run Android on your PC
-cmake - cross-platform, open-source make system
-cmatrix - simulates the display from "The Matrix"
-code - Code editing. Redefined.
-compiz-plugins - OpenGL window and compositing manager - plugins
-compizconfig-settings-manager - Compiz configuration settings manager
-console-setup - console font and keymap setup program
-console-setup-linux - Linux specific part of console-setup
-coreutils - GNU core utilities
-cpio - GNU cpio -- a program to manage archives of files
-cron - process scheduling daemon
-cryptsetup - disk encryption support - startup scripts
-cups - Common UNIX Printing System(tm) - PPD/driver support, web interface
-cups-bsd - Common UNIX Printing System(tm) - BSD commands
-cups-client - Common UNIX Printing System(tm) - client programs (SysV)
-cups-filters - OpenPrinting CUPS Filters - Main Package
-curl - command line tool for transferring data with URL syntax
-dart - Dart SDK
-dash - POSIX-compliant shell
-dbus - simple interprocess messaging system (daemon and utilities)
-dbus-user-session - simple interprocess messaging system (systemd --user integration)
-dconf-editor - simple configuration storage system - graphical editor
-debconf - Debian configuration management system
-debconf-i18n - full internationalization support for debconf
-debianutils - Miscellaneous utilities specific to Debian
-dh-python - Debian helper tools for packaging Python libraries and applications
-diffutils - File comparison utilities
-dirmngr - GNU privacy guard - network certificate management service
-distro-info-data - information about the distributions' releases (data files)
-dmsetup - Linux Kernel Device Mapper userspace library
-dmz-cursor-theme - Style neutral, scalable cursor theme
-dnsmasq - Small caching DNS proxy and DHCP/TFTP server
-doc-base - utilities to manage online documentation
-docker-ce - Docker: the open-source application container engine
-dpkg - Debian package management system
-e2fslibs - ext2/ext3/ext4 file system libraries
-e2fsprogs - ext2/ext3/ext4 file system utilities
-efibootmgr - Interact with the EFI Boot Manager
-eject - ejects CDs and operates CD-Changers under Linux
-eog - Eye of GNOME graphics viewer program
-evince - Document (PostScript, PDF) viewer
-example-content - Ubuntu example content
-exfat-utils - utilities to create, check, label and dump exFAT filesystem
-fakeroot - tool for simulating superuser privileges
-fastboot - Android fastboot tool
-feh - imlib2 based image viewer
-file - Recognize the type of data in a file using "magic" numbers
-file-roller - archive manager for GNOME
-filezilla - Full-featured graphical FTP/FTPS/SFTP client
-findutils - utilities for finding files--find, xargs
-firefox-locale-en - English language pack for Firefox
-fonts-cantarell - sans serif font family designed for on-screen readability
-fonts-dejavu-core - Vera font family derivate with additional characters
-fonts-freefont-ttf - Freefont Serif, Sans and Mono Truetype fonts
-fonts-guru - Meta package to install all Punjabi fonts
-fonts-kacst-one - TrueType font designed for Arabic language
-fonts-khmeros-core - KhmerOS Unicode fonts for the Khmer language of Cambodia
-fonts-lao - TrueType font for Lao language
-fonts-liberation - Fonts with the same metrics as Times, Arial and Courier
-fonts-lklug-sinhala - Unicode Sinhala font by Lanka Linux User Group
-fonts-nanum - Nanum Korean fonts
-fonts-noto-cjk - "No Tofu" font families with large Unicode coverage (CJK regular and bold)
+= Compiled list of Apps used on Ubuntu
+:author:Sam Hansen
+:email:sam.hans@outlook.com
+:date:April 19, 2019
+:hardbreaks:
+
+.AppList
+[[style=color:blue]]
+
+* acpi-support - scripts for handling many ACPI events
+* acpid - Advanced Configuration and Power Interface event daemon
+* activity-log-manager - blacklist configuration user interface for Zeitgeist
+* adapta-gtk-theme - Adapta Gtk+ Theme
+* adduser - add and remove users and groups
+* adobe-flashplugin - Adobe Flash Player plugin
+*adwaita-icon-theme-full - default icon theme of GNOME
+*ajenti - Server administration web interface
+*akiee - A Markdown-based task manager for hackers and people who build stuff.
+*app-install-data-partner - Application Installer (data files for partner *applications/repositories)
+*apparmor-easyprof-ubuntu - AppArmor easyprof templates for Ubuntu
+*apport-gtk - GTK+ frontend for the apport crash report system
+*apt - commandline package manager
+*apt-transport-https - Transitional package: curl-https download transport for APT
+*apt-utils - package management related utility programs
+*aptik - Utility to backup and restore PPAs and packages.
+*atom - A hackable text editor for the 21st Century.
+*atom-beta - A hackable text editor for the 21st Century.
+*avahi-autoipd - Avahi IPv4LL network address configuration daemon
+*avahi-daemon - Avahi mDNS/DNS-SD daemon
+*baobab - GNOME disk usage analyzer
+*base-files - Debian base system miscellaneous files
+*base-passwd - Debian base system master password and group files
+*bash - GNU Bourne Again SHell
+*bc - GNU bc arbitrary precision calculator language
+*bluez - Bluetooth tools and daemons
+*bluez-cups - Bluetooth printer driver for CUPS
+*branding-ubuntu - Replacement artwork with Ubuntu branding
+*bsdutils - basic utilities from 4.4BSD-Lite
+*build-essential - Informational list of build-essential packages
+*busybox-initramfs - Standalone shell setup for initramfs
+*bzip2 - high-quality block-sorting file compressor - utilities
+*ca-certificates - Common CA certificates
+*cdemu-client - Command-line client to control CDEmu daemon
+*chrome-gnome-shell - GNOME Shell extensions integration for web browsers
+*cmake - cross-platform, open-source make system
+*code - Code editing. Redefined.
+*compiz-plugins - OpenGL window and compositing manager - plugins
+- compizconfig-settings-manager - Compiz configuration settings manager
+- console-setup - console font and keymap setup program
+- console-setup-linux - Linux specific part of console-setup
+- coreutils - GNU core utilities
+- cpio - GNU cpio -- a program to manage archives of files
+-cron - process scheduling daemon
+-cryptsetup - disk encryption support - startup scripts
+-curl - command line tool for transferring data with URL syntax
+-dart - Dart SDK
+-dash - POSIX-compliant shell
+-dbus - simple interprocess messaging system (daemon and utilities)
+-dbus-user-session - simple interprocess messaging system (systemd --user integration)
+-dconf-editor - simple configuration storage system - graphical editor
+-debconf - Debian configuration management system
+-debconf-i18n - full internationalization support for debconf
+-debianutils - Miscellaneous utilities specific to Debian
+-dh-python - Debian helper tools for packaging Python libraries and applications
+-diffutils - File comparison utilities
+-dirmngr - GNU privacy guard - network certificate management service
+--distro-info-data - information about the distributions' releases (data files)
+-dmsetup - Linux Kernel Device Mapper userspace library
+-dmz-cursor-theme - Style neutral, scalable cursor theme
+-dnsmasq - Small caching DNS proxy and DHCP/TFTP server
+-doc-base - utilities to manage online documentation
+-docker-ce - Docker: the open-source application container engine
+-dpkg - Debian package management system
+-e2fslibs - ext2/ext3/ext4 file system libraries
+-e2fsprogs - ext2/ext3/ext4 file system utilities
+-efibootmgr - Interact with the EFI Boot Manager
+-eog - Eye of GNOME graphics viewer program
+-evince - Document (PostScript, PDF) viewer
+-example-content - Ubuntu example content
+-exfat-utils - utilities to create, check, label and dump exFAT filesystem
+-fakeroot - tool for simulating superuser privileges
+-file - Recognize the type of data in a file using "magic" numbers
+-file-roller - archive manager for GNOME
+-filezilla - Full-featured graphical FTP/FTPS/SFTP client
+-findutils - utilities for finding files--find, xargs
+-firefox-locale-en - English language pack for Firefox
+-fonts-cantarell - sans serif font family designed for on-screen readability
+-fonts-dejavu-core - Vera font family derivate with additional characters
+-fonts-freefont-ttf - Freefont Serif, Sans and Mono Truetype fonts
+-fonts-guru - Meta package to install all Punjabi fonts
+-fonts-kacst-one - TrueType font designed for Arabic language
+-fonts-khmeros-core - KhmerOS Unicode fonts for the Khmer language of Cambodia
+-fonts-lao - TrueType font for Lao language
+-fonts-liberation - Fonts with the same metrics as Times, Arial and Courier
+-fonts-lklug-sinhala - Unicode Sinhala font by Lanka Linux User Group
+-fonts-nanum - Nanum Korean fonts
+-fonts-noto-cjk - "No Tofu" font families with large Unicode coverage (CJK regular and bold)
 fonts-roboto - metapackage to pull in Roboto fonts
 fonts-roboto-fontface - largely geometric, friendly and open curves font
 fonts-sil-abyssinica - smart Unicode font for Ethiopian and Erythrean scripts (Amharic et al.)
@@ -115,7 +103,6 @@ fonts-symbola - symbolic font providing emoji characters from Unicode 9.0
 fonts-takao-pgothic - Japanese TrueType font set, Takao P Gothic Fonts
 fonts-thai-tlwg - Thai fonts maintained by TLWG (metapackage)
 fonts-tibetan-machine - font for Tibetan, Dzongkha and Ladakhi (OpenType Unicode)
-foomatic-db-compressed-ppds - OpenPrinting printer support - Compressed PPDs derived from the database
 fortune-mod - provides fortune cookies on demand
 fwupd - Firmware update daemon
 fwupdate - Tools to manage UEFI firmware updates
@@ -130,8 +117,6 @@ gcc-6-base - GCC, the GNU Compiler Collection (base package)
 gcr - GNOME crypto services (daemon and tools)
 gdm3 - GNOME Display Manager
 genisoimage - Creates ISO-9660 CD-ROM filesystem images
-gfortran - GNU Fortran 95 compiler
-ghost - Desktop Client for Ghost
 ghostscript-x - interpreter for the PostScript language and for PDF - X11 support
 gimp - GNU Image Manipulation Program
 gir1.2-clutter-1.0 - GObject introspection data for the Clutter 1.0 library
@@ -178,12 +163,9 @@ gnome-video-effects - Collection of GStreamer effects
 gnupg - GNU privacy guard - a free PGP replacement
 gnupg-agent - GNU privacy guard - cryptographic agent
 gnupg-l10n - GNU privacy guard - localization files
-gnuplot - Command-line driven interactive plotting program, version 5
-gnuplot-x11 - Command-line driven interactive plotting program. X-package
 google-chrome-beta - The web browser from Google
 gparted - GNOME partition editor
 gpgv - GNU privacy guard - signature verification tool
-gradle - Gradle is a Groovy based build system
 grep - GNU grep, egrep and fgrep
 grub-customizer - Grub Customizer - A graphical Grub2/BURG configuration application
 grub-efi-amd64-signed - GRand Unified Bootloader, version 2 (EFI-AMD64 version, signed)
@@ -194,13 +176,11 @@ gsmartcontrol - graphical user interface for smartctl
 gstreamer1.0-alsa - GStreamer plugin for ALSA
 gstreamer1.0-plugins-base-apps - GStreamer helper programs from the "base" set
 gstreamer1.0-pulseaudio - GStreamer plugin for PulseAudio
-gthumb - image viewer and browser
 gucharmap - Unicode character picker and font browser
 gvfs-bin - userspace virtual filesystem - binaries
 gvfs-fuse - userspace virtual filesystem - fuse server
 gzip - GNU compression utilities
 hostname - utility to set/show the host name or domain name
-hplip - HP Linux Printing and Imaging System (HPLIP)
 htop - interactive processes viewer
 hyper - A terminal built on web technologies
 hyphen-en-us - English (US) hyphenation patterns
@@ -414,7 +394,6 @@ nautilus-extension-brasero - CD/DVD burning integration for Nautilus
 nautilus-sendto - easily send files via email from within Nautilus
 ncurses-base - basic terminal type definitions
 ncurses-bin - terminal-related programs and man pages
-nemo - File manager and graphical shell for Cinnamon
 neovim - heavily refactored vim fork
 netbase - Basic TCP/IP networking system
 netcat-openbsd - TCP/IP swiss army knife
@@ -429,18 +408,11 @@ nouveau-firmware - Firmware for nVidia graphics cards
 numix-gtk-theme - modern flat theme from the Numix project
 nvidia-375 - Transitional package for nvidia-384
 nvidia-prime - Tools to enable NVIDIA's Prime
-okular-extra-backends - additional document format support for Okular
-openjdk-8-jdk - OpenJDK Development Kit (JDK)
-openjdk-8-jre-headless - OpenJDK Java runtime, using Hotspot JIT (headless)
-openprinting-ppds - OpenPrinting printer support - PostScript PPD files
 openssh-server - secure shell (SSH) server, for secure access from remote machines
 oranchelo-icon-theme - Oranchelo icon theme
 os-prober - utility to detect other OSes on a set of drives
-osx-arc-collection - OSX-Arc theme collection
 overlay-scrollbar-gtk2 - GTK 2 module for overlay scrollbars
 ovmf - UEFI firmware for 64-bit x86 virtual machines
-p11-kit - p11-glue utilities
-p11-kit-modules:i386 - p11-glue proxy and trust modules
 packagekit - Provides a package management service
 pandoc - general markup converter
 paper-cursor-theme - Paper Cursor Theme
@@ -454,20 +426,10 @@ plymouth-theme-ubuntu-gnome-logo - graphical boot animation and logger - ubuntu-
 plymouth-theme-ubuntu-gnome-text - graphical boot animation and logger - ubuntu-gnome-text theme
 plymouth-theme-ubuntu-logo - boot animation, logger and I/O multiplexer - ubuntu theme
 policykit-desktop-privileges - run common desktop actions without password
-postgresql-9.6 - object-relational SQL database, version 9.6 server
 ppa-purge - disables a PPA and reverts to official packages
 ppp - Point-to-Point Protocol (PPP) - daemon
 pppconfig - Text menu based utility for configuring ppp
 pppoeconf - configures PPPoE/ADSL connections
-printer-driver-brlaser - printer driver for (some) Brother laser printers
-printer-driver-c2esp - printer driver for Kodak ESP AiO color inkjet Series
-printer-driver-foo2zjs - printer driver for ZjStream-based printers
-printer-driver-min12xxw - printer driver for KonicaMinolta PagePro 1[234]xxW
-printer-driver-pnm2ppa - printer driver for HP-GDI printers
-printer-driver-ptouch - printer driver Brother P-touch label printers
-printer-driver-pxljr - printer driver for HP Color LaserJet 35xx/36xx
-printer-driver-sag-gdi - printer driver for Ricoh Aficio SP 1000s/SP 1100s
-printer-driver-splix - Driver for Samsung and Xerox SPL2 and SPLc laser printers
 procps - /proc file system utilities
 pulseaudio - PulseAudio sound server
 pulseaudio-module-bluetooth - Bluetooth module for PulseAudio sound server
@@ -486,14 +448,10 @@ qbittorrent - bittorrent client based on libtorrent-rasterbar with a Qt5 GUI
 qemu-kvm - QEMU Full virtualization
 qemu-system-x86 - QEMU full system emulation binaries (x86)
 qemu-utils - QEMU utilities
-qt-at-spi - at-spi accessibility plugin for Qt
-r-base - GNU R statistical computation and graphics system
-r-base-dev - GNU R installation of auxiliary GNU R packages
 ranger - File manager with an ncurses frontend written in Python
 readline-common - GNU readline and history libraries, common files
 resolvconf - name server information handler
 rfkill - tool for enabling and disabling wireless devices
-rpm - package manager for RPM
 rsync - fast, versatile, remote (and local) file-copying tool
 rsyslog - reliable system and kernel logging daemon
 rtorrent - ncurses BitTorrent client based on LibTorrent from rakshasa
@@ -511,71 +469,65 @@ simplescreenrecorder - Feature-rich screen recorder for X11 and OpenGL
 sl - Correct you if you type `sl' by mistake
 smartmontools - control and monitor storage systems using S.M.A.R.T.
 snapd - Daemon and tooling that enable snap packages
-sni-qt - indicator support for Qt
 software-properties-common - manage the repositories that you install software from (common)
 software-properties-gtk - manage the repositories that you install software from (gtk)
 sox - Swiss army knife of sound processing
 speech-dispatcher - Common interface to speech synthesizers
 spice-vdagent - Spice agent for Linux
-spotify-client - Spotify streaming music client
 ssh-askpass-gnome - interactive X program to prompt users for a passphrase for ssh-add
-steam-launcher - Launcher for the Steam software distribution service
 sublime-text - Sublime Text is a sophisticated text editor for code, markup and prose
 subversion - Advanced version control system
 sudo - Provide limited super user privileges to specific users
 synaptic - Graphical package manager
-system-config-printer - graphical interface to configure the printing system
-system-config-printer-common - backend and the translation files for system-config-printer
-  system-config-printer-udev - Utilities to detect and configure printers automatically
-  systemd - system and service manager
-  systemd-sysv - system and service manager - SysV links
-  sysvinit-utils - System-V-like utilities
-  tar - GNU version of the tar archiving utility
-  tmux - terminal multiplexer
-  tracker - metadata database, indexer and search tool
-  ttf-ancient-fonts-symbola - symbolic font providing emoji chars from Unicode 9.0 (transit. pkg)
-  ttf-ubuntu-font-family - Ubuntu Font Family, sans-serif typeface hinted for clarity
-  tzdata - time zone and daylight-saving time data
-  ubuntu-artwork - Ubuntu themes and artwork
-  ubuntu-docs - Ubuntu Desktop Guide
-  ubuntu-drivers-common - Detect and install additional Ubuntu driver packages
-  ubuntu-gnome-default-settings - default settings for the Ubuntu desktop (transitional package)
-  ubuntu-gnome-wallpapers - Ubuntu GNOME Wallpapers
-  ubuntu-keyring - GnuPG keys of the Ubuntu archive
-  ubuntu-minimal - Minimal core of Ubuntu
-  ubuntu-release-upgrader-gtk - manage release upgrades
-  ubuntu-session - Ubuntu session with GNOME Shell
-  ubuntu-settings - default settings for the Ubuntu desktop
-  ubuntu-software - Utility for browsing, installing, and removing software
-  ubuntu-sounds - Ubuntu's GNOME audio theme
-  ubuntu-standard - The Ubuntu standard system
-  ucf - Update Configuration File(s): preserve user changes to config files
-  udev - /dev/ and hotplug management daemon
-  unity - Interface designed for efficiency of space and interaction.
-  unity-accessibility-profiles - Accessibility Profile Manager - Unity profile data
-  unity-greeter - Unity Greeter
-  unity-settings-daemon - daemon handling the Unity session settings
-  unzip - De-archiver for .zip files
-  update-manager - GNOME application that manages apt updates
-  update-notifier - Daemon which notifies about package updates
-  util-linux - miscellaneous system utilities
-  vim-common - Vi IMproved - Common files
-  vim-tiny - Vi IMproved - enhanced vi editor - compact version
-  vino - VNC server for GNOME
-  virtualbox - x86 virtualization solution - base binaries
-  virtualbox-ext-pack - extra capabilities for VirtualBox, downloader.
-  vlc - multimedia player and streamer
-  wamerican - American English dictionary words for /usr/share/dict
-  wbritish - British English dictionary words for /usr/share/dict
-  whiptail - Displays user-friendly dialog boxes from shell scripts
-  whoopsie - Ubuntu error tracker submission
-  winetricks - package manager for Wine to install software easily
-  wireless-tools - Tools for manipulating Linux Wireless Extensions
-  wireshark - network traffic analyzer - meta-package
-  wpasupplicant - client support for WPA and WPA2 (IEEE 802.11i)
-  xcb - Pigeon holes for your cut and paste selections
-  xcursor-themes - Base X cursor themes
-  xdg-desktop-portal-gtk - GTK+/GNOME portal backend for xdg-desktop-portal
+systemd - system and service manager
+systemd-sysv - system and service manager - SysV links
+sysvinit-utils - System-V-like utilities
+tar - GNU version of the tar archiving utility
+tmux - terminal multiplexer
+tracker - metadata database, indexer and search tool
+ttf-ancient-fonts-symbola - symbolic font providing emoji chars from Unicode 9.0 (transit. pkg)
+ttf-ubuntu-font-family - Ubuntu Font Family, sans-serif typeface hinted for clarity
+tzdata - time zone and daylight-saving time data
+ubuntu-artwork - Ubuntu themes and artwork
+ubuntu-docs - Ubuntu Desktop Guide
+ubuntu-drivers-common - Detect and install additional Ubuntu driver packages
+ubuntu-gnome-default-settings - default settings for the Ubuntu desktop (transitional package)
+ubuntu-gnome-wallpapers - Ubuntu GNOME Wallpapers
+ubuntu-keyring - GnuPG keys of the Ubuntu archive
+ubuntu-minimal - Minimal core of Ubuntu
+ubuntu-release-upgrader-gtk - manage release upgrades
+ubuntu-session - Ubuntu session with GNOME Shell
+ubuntu-settings - default settings for the Ubuntu desktop
+ubuntu-software - Utility for browsing, installing, and removing software
+ubuntu-sounds - Ubuntu's GNOME audio theme
+ubuntu-standard - The Ubuntu standard system
+ucf - Update Configuration File(s): preserve user changes to config files
+udev - /dev/ and hotplug management daemon
+unity - Interface designed for efficiency of space and interaction.
+unity-accessibility-profiles - Accessibility Profile Manager - Unity profile data
+unity-greeter - Unity Greeter
+unity-settings-daemon - daemon handling the Unity session settings
+unzip - De-archiver for .zip files
+update-manager - GNOME application that manages apt updates
+update-notifier - Daemon which notifies about package updates
+util-linux - miscellaneous system utilities
+vim-common - Vi IMproved - Common files
+vim-tiny - Vi IMproved - enhanced vi editor - compact version
+vino - VNC server for GNOME
+virtualbox - x86 virtualization solution - base binaries
+virtualbox-ext-pack - extra capabilities for VirtualBox, downloader.
+vlc - multimedia player and streamer
+wamerican - American English dictionary words for /usr/share/dict
+wbritish - British English dictionary words for /usr/share/dict
+whiptail - Displays user-friendly dialog boxes from shell scripts
+whoopsie - Ubuntu error tracker submission
+winetricks - package manager for Wine to install software easily
+wireless-tools - Tools for manipulating Linux Wireless Extensions
+wireshark - network traffic analyzer - meta-package
+wpasupplicant - client support for WPA and WPA2 (IEEE 802.11i)
+xcb - Pigeon holes for your cut and paste selections
+xcursor-themes - Base X cursor themes
+xdg-desktop-portal-gtk - GTK+/GNOME portal backend for xdg-desktop-portal
 xdg-user-dirs - tool to manage well known user directories
 xdg-user-dirs-gtk - tool to manage well known user directories (Gtk extension)
 xdg-utils - desktop integration utilities from freedesktop.org

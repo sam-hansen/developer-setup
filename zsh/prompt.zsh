@@ -1,5 +1,5 @@
-
-
+#!/bin/zsh
+# Zsh Prompot Theme
 PROMPT='$(_user_host)%{$fg[cyan]%}%~ $(git_prompt_info)%{$reset_color%}$(_git_time_since_commit)$(git_prompt_status)${_return_status}➜ '
 
 local _return_status="%{$fg[red]%}%(?..⍉)%{$reset_color%}"
@@ -32,7 +32,6 @@ ZSH_THEME_GIT_TIME_SHORT_COMMIT_MEDIUM="%{$fg[yellow]%}"
 ZSH_THEME_GIT_TIME_SINCE_COMMIT_LONG="%{$fg[red]%}"
 ZSH_THEME_GIT_TIME_SINCE_COMMIT_NEUTRAL="%{$fg[white]%}"
 
-#
 # Determine the time since last commit. If branch is clean,
 # use a neutral color, otherwise colors will vary according to time.
 function _git_time_since_commit() {
@@ -63,7 +62,7 @@ function _git_time_since_commit() {
         if [ "$hours" -gt 4 ]; then
             COLOR="$ZSH_THEME_GIT_TIME_SINCE_COMMIT_LONG"
         elif [ "$minutes" -gt 30 ]; then
-            COLOR="$ZSH_THEME_GIT_TIME_SHORT_COMMIT_MEDIUM"
+            COLOR="$ZSH_THEME_GIT_TIME_SHORT_COMMIT_MEDIUM
         else
             COLOR="$ZSH_THEME_GIT_TIME_SINCE_COMMIT_SHORT"
         fi
@@ -71,15 +70,9 @@ function _git_time_since_commit() {
         COLOR="$ZSH_THEME_GIT_TIME_SINCE_COMMIT_NEUTRAL"
     fi
 
-
     echo "$COLOR$commit_age%{$reset_color%}"
   fi
 }
-
-
-
-
-
 
 # local ret_status="%(?:%{$fg_bold[green]%}➜ :%{$fg_bold[red]%}➜ )"
 # PROMPT='${ret_status} %{$fg[cyan]%}%c%{$reset_color%} $(git_prompt_info)'
@@ -87,5 +80,3 @@ function _git_time_since_commit() {
 # ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%} "
 # ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[blue]%}) %{$fg[yellow]%}✗"
 # ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg[blue]%})"
-#
-#
