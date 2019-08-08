@@ -16,6 +16,10 @@ module.exports = {
       tray: true,
       unique: true
     },
+    hyperTabs: {
+      trafficButtons: true,
+      tabIconsColored: true
+    },
     hyperlinks: {
       clickAction: 'copy',
       defaultBrowser: true
