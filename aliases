@@ -1,0 +1,14 @@
+#!/bin/zsh
+# My Alias Configs
+alias l='ls -a --color=auto'
+alias ls='ls --color=auto'
+alias cls=clear
+alias inst='sudo apt-get install -y'
+alias update='sudo apt-get update -y'
+alias upgrade='sudo apt-get upgrade'
+alias fupgrade='sudo apt-get full-upgrade'
+alias python=python3
+alias pi='pip3 install --user'
+alias pip=pip3
+alias ni='npm install'
+alias ng='npm install -g'
