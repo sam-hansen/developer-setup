@@ -3,7 +3,7 @@
 # desktop only: install terminal from https://hyper.is/#installation
 #wget https://releases.hyper.is/download/AppImage
 
-HOME=/home/Sam
+HOME=/home/sam
 RC=$HOME/dotfiles/.rc
 
 # install zsh
