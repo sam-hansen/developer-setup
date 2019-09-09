@@ -1,6 +1,5 @@
 module.exports =
   plugins: [
-    # 'hyperterm-material'
     'hyper-one-light'
     'hyperterm-overlay'
     'hyperline'
@@ -8,7 +7,6 @@ module.exports =
     'hypercwd'
     'hyperterm-themed-scrollbar'
     'hyperclean'
-      # 'hyperterm-clicky'
     'hyperterm-alternatescroll'
     'hyperborder'
     'hyperminimal'
@@ -34,9 +32,9 @@ module.exports =
       clickAction: 'open'
       defaultBrowser: true
     # clicky: editor: 'atom'
-    # hyperTabs:
-    #   trafficButtons: true
-    #   tabIconsColored: true
+    hyperTabs:
+      trafficButtons: true
+      tabIconsColored: true
     alternateScroll: scrollSpeed: 10
     hypercwd: initialWorkingDirectory: '~'
     updateChannel: 'canary'
