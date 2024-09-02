@@ -1,10 +1,17 @@
 My Commonly Used Chrome Extensions
 ==================================
 
+<<<<<<< HEAD:ubuntu/chrome-ext.md
+=======
+
+## Developer
+
+>>>>>>> dd96823f5bfda0b409e3dab74be0ad76e62e64c0:chrome-extensions.md
  - [Octotree](https://chrome.google.com/webstore/detail/bkhaagjahfmjljalopjnoealnfndnagc)
  - [DevTools Theme: Zero Dark Matrix](https://chrome.google.com/webstore/detail/bomhdjeadceaggdgfoefmpeafkjhegbo)
  - [Share Extensions](https://chrome.google.com/webstore/detail/chdafcbnfkfenoeejpaeenpdamhmalhe)
  - [JSONView](https://chrome.google.com/webstore/detail/chklaanhfefbnpoihckbnefhakgolnmc)
+<<<<<<< HEAD:ubuntu/chrome-ext.md
  - [uBlock Origin](https://chrome.google.com/webstore/detail/cjpalhdlnbpafiamejdnhcphjbkeiagm)
  - [VS Launcher](https://chrome.google.com/webstore/detail/cmhicdplfejcchpmimlnohfadpimciaa)
  - [Vimium](https://chrome.google.com/webstore/detail/dbepggeogbaibhgnhhndojpepiihcmeb)
@@ -37,10 +44,44 @@ My Commonly Used Chrome Extensions
  - [Google Drive](https://chrome.google.com/webstore/detail/apdfllckaahabafndbhieahigkjlhalf)
  - [YouTube](https://chrome.google.com/webstore/detail/blpcfgokakmgnkcojhhkbfbldkacnbeo)
  - [Sheets](https://chrome.google.com/webstore/detail/felcaaldnbdncclmgdcncolpebgiejap)
+=======
+ - [Tampermonkey](https://chrome.google.com/webstore/detail/dhdgffkkebhmkfjojejmpbldmpobfkfo)
+ - [React Developer Tools](https://chrome.google.com/webstore/detail/fmkadmapgofadopljbjfkapdkoienihi)
+ - [Quick Extension Reload](https://chrome.google.com/webstore/detail/goeiakeofnlpkioeadcbocfifmgkidpb)
+ - [Refined GitHub](https://chrome.google.com/webstore/detail/hlepfoohegkhhmjieoechaddaejaokhf)
+ - [JetBrains IDE Support](https://chrome.google.com/webstore/detail/hmhgeddbohgjknpmjagkdomcpobmllji)
+ - [Apollo Client Developer Tools](https://chrome.google.com/webstore/detail/jdkknkkbebbapilgoeccciglkfbmbnfm)
+ - [Hacker News Enhancement Suite](https://chrome.google.com/webstore/detail/bappiabcodbpphnojdiaddhnilfnjmpm)
+ - [Redux DevTools](https://chrome.google.com/webstore/detail/lmhkpmbekcpmknklioeibfkpmmfibljd)
+ - [HTTP Archive Viewer](https://chrome.google.com/webstore/detail/ebbdbdmhegaoooipfnjikefdpeoaidml)
+>>>>>>> dd96823f5bfda0b409e3dab74be0ad76e62e64c0:chrome-extensions.md
  - [Postman](https://chrome.google.com/webstore/detail/fhbjgbiflinjbdggehcddcbncdddomop)
- - [ElasticSearch Toolbox](https://chrome.google.com/webstore/detail/focdbmjgdonlpdknobfghplhmafpgfbp)
  - [Chrome Remote Desktop](https://chrome.google.com/webstore/detail/gbchcmhmhahfdphkhkmpfmihenigjmpp)
  - [Advanced REST client](https://chrome.google.com/webstore/detail/hgmloofddffdnphfgcellkdfbfbjeloo)
+<<<<<<< HEAD:ubuntu/chrome-ext.md
  - [Kindle Cloud Reader](https://chrome.google.com/webstore/detail/icdipabjmbhpdkjaihfjoikhjjeneebd)
  - [DevDocs](https://chrome.google.com/webstore/detail/mnfehgbmkapmjnhcnbodoamcioleeooe)
  - [Secure Shell](https://chrome.google.com/webstore/detail/pnhechapfaindjhompbnflcldabbghjo)
+=======
+ - [DevDocs](https://chrome.google.com/webstore/detail/mnfehgbmkapmjnhcnbodoamcioleeooe)
+ - [Secure Shell](https://chrome.google.com/webstore/detail/pnhechapfaindjhompbnflcldabbghjo)
+
+## General
+ - [Enhancer for YouTube™](https://chrome.google.com/webstore/detail/ponfpcnoihfmfllpaingbgckeeldkhle)
+
+ - [Office Editing for Docs, Sheets & Slides](https://chrome.google.com/webstore/detail/gbkeegbaiigmenfmjfclcdgdpimamgkj)
+ - [Mailto:](https://chrome.google.com/webstore/detail/gppbppehiogfokmpligejhaepeopajdf)
+
+ - [Tab Organizer](https://chrome.google.com/webstore/detail/gbaokejhnafeofbniplkljehipcekkbh)
+ - [Google Docs Offline](https://chrome.google.com/webstore/detail/ghbmnnjooekpmoecnnnilnnbdlolhkhi)
+ - [Save to Google Drive](https://chrome.google.com/webstore/detail/gmbmikajjgmnabiglmofipeabaddhgne)
+ - [Bookmark Manager](https://chrome.google.com/webstore/detail/gmlllbghnfkpflemihljekbapjopfjik)
+ - [Screen Capturing](https://chrome.google.com/webstore/detail/ajhifddimkapgcifgcodmmfdlknahffk)
+ - [uBlock Origin](https://chrome.google.com/webstore/detail/cjpalhdlnbpafiamejdnhcphjbkeiagm)
+ - [ YouTube™ Picture in Picture (Beta)](https://chrome.google.com/webstore/detail/dfanpgpmfdocbeldhfgeafndhoiifgpe)
+ - [Tabs Outliner](https://chrome.google.com/webstore/detail/eggkanocgddhmamlbiijnphhppkpkmkl)
+ - [Docs Online Viewer](https://chrome.google.com/webstore/detail/gmpljdlgcdkljlppaekciacdmdlhfeon)
+ - [Reddit Enhancement Suite](https://chrome.google.com/webstore/detail/kbmfpngjjgdllneeigpgjifpgocmfgmb)
+ - [Inbox by Gmail](https://chrome.google.com/webstore/detail/gkljgfmjocfalijkgoogmfffkhmkbgol)
+ - [Wolfram|Alpha (Official)](https://chrome.google.com/webstore/detail/icncamkooinmbehmkeilcccmoljfkdhp)
+>>>>>>> dd96823f5bfda0b409e3dab74be0ad76e62e64c0:chrome-extensions.md
