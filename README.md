@@ -3,22 +3,21 @@
 
 # The Devil Is In The Defaults
 
-<<<<<<< HEAD
 ![screen](docs/screen-zsh.png)
 
 ![atom](docs/screen-atom.png)
 
 ![chrome](docs/screen-chrome.png)
-=======
+
 `vscode`, `nvim`, `nu`, `bun`, `node`, `helix`, `starship prompt` and other dev tools. 
 
 ## System Info When Opening Shell
 
     👤 user@XPS15 🔝  0% fish 📁  1% 🌎  130.212.146.39 👮 California State University 📈  Intel(R) Core(TM) i5-7300HQ CPU @ 2.50GHz 💻  Debian GNU/Linux 12 (bookworm) 🔧  5.15.90.1-microsoft-standard-WSL2 🚀  apt docker git  npm pip
->>>>>>> dd96823f5bfda0b409e3dab74be0ad76e62e64c0
 
-`wget -qO- https://raw.githubusercontent.com/vtempest/server-shell-setup/master/systeminfo.sh | bash`
-
+```bash
+wget -qO- https://raw.githubusercontent.com/vtempest/server-shell-setup/master/systeminfo.sh | bash
+```
 
 ## Reference Docs - 🪄 Magic Spells for Open Sourcery 
 
@@ -39,21 +38,14 @@
 - [DevDocs.io](https://devdocs.io/)
 - [Terminal Best Tools](https://github.com/k4m4/terminals-are-sexy)
 
-<<<<<<< HEAD
 - Zsh
     - [Docs](https://wiki.archlinux.org/index.php/zsh)
     - [Plugins](https://github.com/unixorn/awesome-zsh-plugins)
-
 - Oh-my-zsh
     - [Docs](https://github.com/robbyrussell/oh-my-zsh/wiki/Cheatsheet)
     - [Plugins](https://github.com/robbyrussell/oh-my-zsh/wiki/Plugins-Overview)
     - [Themes](https://github.com/robbyrussell/oh-my-zsh/wiki/themes)
-
 - Hyper
     - [Docs](https://hyper.is/#installation)
     - [Plugins](https://github.com/bnb/awesome-hyper)
     - [Themes](https://hyperthemes.matthi.coffee/)
-=======
-
-
->>>>>>> dd96823f5bfda0b409e3dab74be0ad76e62e64c0
