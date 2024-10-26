@@ -5,21 +5,21 @@
 
 ![screen](docs/screen-zsh.png)
 
-![atom](docs/screen-atom.png)
-
 ![chrome](docs/screen-chrome.png)
 
-`vscode`, `nvim`, `nu`, `bun`, `node`, `helix`, `starship prompt` and other dev tools. 
+`vscode`, `nvim`, `nu`, `bun`, `node`, `helix`, `starship prompt` and other dev tools.
 
 ## System Info When Opening Shell
 
-    👤 user@XPS15 🔝  0% fish 📁  1% 🌎  130.212.146.39 👮 California State University 📈  Intel(R) Core(TM) i5-7300HQ CPU @ 2.50GHz 💻  Debian GNU/Linux 12 (bookworm) 🔧  5.15.90.1-microsoft-standard-WSL2 🚀  apt docker git  npm pip
+```bash
+👤 user@XPS15 🔝  0% fish 📁  1% 🌎  130.212.146.39 👮 California State University 📈  Intel(R) Core(TM) i5-7300HQ CPU @ 2.50GHz 💻  Debian GNU/Linux 12 (bookworm) 🔧  5.15.90.1-microsoft-standard-WSL2 🚀  apt docker git  npm pip
+```
 
 ```bash
 wget -qO- https://raw.githubusercontent.com/vtempest/server-shell-setup/master/systeminfo.sh | bash
 ```
 
-## Reference Docs - 🪄 Magic Spells for Open Sourcery 
+## Reference Docs - 🪄 Magic Spells for Open Sourcery
 
 - [nushell Docs](https://www.nushell.sh/book/)
 - [Fish Features Overview](https://medium.com/the-glitcher/fish-shell-3ec1a6cc6128)
@@ -34,18 +34,23 @@ wget -qO- https://raw.githubusercontent.com/vtempest/server-shell-setup/master/s
 - [Helix Editor](https://docs.helix-editor.com)
 - [Neovim](https://github.com/neovim/neovim)
 - [Neovim LazyVim Config](https://www.lazyvim.org/keymaps)
-- [gh github cli](https://cli.github.com/manual/gh) 
+- [gh github cli](https://cli.github.com/manual/gh)
 - [DevDocs.io](https://devdocs.io/)
 - [Terminal Best Tools](https://github.com/k4m4/terminals-are-sexy)
 
-- Zsh
-    - [Docs](https://wiki.archlinux.org/index.php/zsh)
-    - [Plugins](https://github.com/unixorn/awesome-zsh-plugins)
-- Oh-my-zsh
-    - [Docs](https://github.com/robbyrussell/oh-my-zsh/wiki/Cheatsheet)
-    - [Plugins](https://github.com/robbyrussell/oh-my-zsh/wiki/Plugins-Overview)
-    - [Themes](https://github.com/robbyrussell/oh-my-zsh/wiki/themes)
-- Hyper
-    - [Docs](https://hyper.is/#installation)
-    - [Plugins](https://github.com/bnb/awesome-hyper)
-    - [Themes](https://hyperthemes.matthi.coffee/)
+### Zsh
+
+- [Docs](https://wiki.archlinux.org/index.php/zsh)
+- [Plugins](https://github.com/unixorn/awesome-zsh-plugins)
+
+### Oh-my-zsh
+
+- [Docs](https://github.com/robbyrussell/oh-my-zsh/wiki/Cheatsheet)
+- [Plugins](https://github.com/robbyrussell/oh-my-zsh/wiki/Plugins-Overview)
+- [Themes](https://github.com/robbyrussell/oh-my-zsh/wiki/themes)
+
+### Hyper
+
+- [Docs](https://hyper.is/#installation)
+- [Plugins](https://github.com/bnb/awesome-hyper)
+- [Themes](https://hyperthemes.matthi.coffee/)

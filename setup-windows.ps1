@@ -33,21 +33,19 @@ function setup_Run {
     winget install voidtools.Everything
     winget install Vivaldi.Vivaldi 
 };
-
 New-Alias setup setup_Run;
 
 
-
-#Fido downloads the latest windows iso from Microsoft, install to USB with Rufus
+# Fido downloads the latest windows iso from Microsoft, install to USB with Rufus
 function DownloadWindowsInstaller_Run{
 
     Disk_Downloader_Script_URL="https://raw.githubusercontent.com/pbatard/Fido/master/Fido.ps1";
     Invoke-WebRequest Disk_Downloader_Script_URL -OutFile Fido.ps1
     . .\Fido.ps1 -Win 11
     winget install rufus
-}
-
+};
 New-Alias DownloadWindowsInstaller  DownloadWindowsInstaller_Run;
+
 
 # Windows11 default apps remover
 # https://github.com/mikeroyal/Windows-11-Guide
@@ -59,8 +57,7 @@ function Win11Debloat_Run {
 New-Alias Win11Debloat Win11Debloat_Run;
 
 
-
-#edit powershell config file 
+# Edit powershell config file 
 function editConfigFile {
     notepad $PSHOME\Profile.ps1;
 }; 

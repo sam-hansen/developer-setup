@@ -91,7 +91,7 @@ mv 10-powerline-symbols.conf ~/.config/fontconfig/conf.d/ ;
 # Adding Elvish Shell!
 # Add Elvish PPA repo
 sudo wget -O /etc/apt/trusted.gpg.d/elvish \
-  'https://sks-keyservers.net/pks/lookup?search=0xE9EA75D542E35A20&options=mr&op=get';
+    'https://sks-keyservers.net/pks/lookup?search=0xE9EA75D542E35A20&options=mr&op=get';
 sudo gpg --dearmor /etc/apt/trusted.gpg.d/elvish;
 sudo rm /etc/apt/trusted.gpg.d/elvish;
 echo 'deb http://ppa.launchpad.net/zhsj/elvish/ubuntu xenial main' | sudo tee /etc/apt/sources.list.d/elvish.list;
