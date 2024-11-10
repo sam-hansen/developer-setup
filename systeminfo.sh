@@ -7,7 +7,10 @@
 system_info(){
 
     #user
-    echo -ne "\e[31m👤 $(whoami)\e[0m@\e[91m$(hostname)"
+    echo -ne "\e[31m👤$(whoami) "
+
+    #hostname
+    echo -ne "\e[91m🏠$(hostname)"
 
     #top_process
     export TOP_PROC=$(ps -eo pcpu,comm --sort=-%cpu --no-headers \
@@ -18,18 +21,18 @@ system_info(){
     export DISK_USED=$(df | grep '/$' | awk '{print $5}')
     echo -ne "\e[35m 📁  $DISK_USED"
 
-    #ip
-    INFO=$(wget -qO- -T1 ipinfo.io)
-    export IP=$(echo $INFO | grep -oP 'ip\": "\K[^"]+')
-    echo -ne "\e[32m 🌎 $IP"
+    # Get IP info or exit with error message
+    INFO=$(wget -qO- -T1 ipinfo.io 2>/dev/null) || { echo -e "\033[31m ❌ No internet connection"; exit 1; }
 
-    #city
-    export CITY=$(echo $INFO | grep -oP 'city\": "\K[^"]+')
-    echo -ne "\e[32m 🌎 $CITY"
+    # Extract info (IP and city will show regardless of domain presence)
+    IP=$(echo "$INFO" | grep -oP 'ip"\s*:\s*"\K[^"]+' 2>/dev/null)
+    CITY=$(echo "$INFO" | grep -oP 'city"\s*:\s*"\K[^"]+' 2>/dev/null)
+    DOMAIN=$(echo "$INFO" | grep -oP 'hostname"\s*:\s*"\K[^"]+' 2>/dev/null)
 
-    #domain (if available)
-    export DOMAIN=$(echo $INFO | grep -oP 'hostname\": "\K[^"]+')
-    if [ $DOMAIN ]; then echo -ne "\e[37m 🤖 $DOMAIN"; fi
+    # network ip and external isp domain name
+    [ -n "$IP" ] && echo -ne "\033[32m 🌎 ${IP:-No IP}"|| echo  -ne "\033[37m 🌎 No Network"
+    [ -n "$CITY" ] && echo -ne "\033[32m 📍 ${CITY:-No City}"
+    [ -n "$DOMAIN" ] && echo -ne "\033[37m 🔗 http://$DOMAIN" 
 
     #isp
     export ISP=$(echo $INFO | grep -oP 'org\": "\K[^"]+' | cut -f 1 -d ' ' --complement)
@@ -43,7 +46,7 @@ system_info(){
     #os
 
     export OS=$([ -f /etc/os-release ] && grep -oP "^NAME=\"\K[^\"]+" /etc/os-release)
-    echo -ne "\e[34m 💻 $OS"
+    echo -ne "\e[34m ⚡ $OS"
     
     #device
     if test -f /sys/devices/virtual/dmi/id/product_name; then
@@ -58,11 +61,10 @@ system_info(){
     # package managers - system and languages
     # remove less common ones to save load time
     echo -ne "\e[31m 🚀"
-    for cmd in "apt" "npm" "pip" "docker"\
-          \ "hx" "nvim" "bun"
+    for cmd in "apt" "npm" "pip" "docker" "hx" "nvim" "bun" \
         # \ "pkg" "flatpak"  "yum" "snap" "pacman"\
-        # \ "apk"  "brew" "bun"
-    do  
+        # \ "apk"  "brew" "yarn" "pnpm" "cargo" "gem" "go" 
+    do
         if [ -x "$(command -v $cmd)" ]; then
             echo -ne " "$cmd;
         fi
