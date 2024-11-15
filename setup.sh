@@ -59,7 +59,7 @@ mv ~/micro ~/bin/micro ;
 # sudo snap install micro --classic 
 
 # Node
-curl -sL https://deb.nodesource.com/setup_9.x | sudo -E bash - ;
+curl -fsSL https://deb.nodesource.com/setup_20.x | sudo bash - ;
 sudo apt-get install -y nodejs ;
 # Optional: install build tools
 sudo apt-get install -y build-essential ;
