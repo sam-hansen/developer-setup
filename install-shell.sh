@@ -19,7 +19,7 @@ setup_shell(){
 
 
   #bun 
-  curl -fsSL https://bun.sh/install | bash
+  bash -c "$(curl -sS https://bun.sh/install )"
 
   #node with volta
   bash -c "$(curl -sS https://get.volta.sh )"
@@ -32,6 +32,16 @@ setup_shell(){
 
   #nvim config
   git clone https://github.com/LazyVim/starter ~/.config/nvim 
+
+
+
+  # fish plugins config - goes into fish
+  curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install > omf-install.sh
+  chmod +x omf-install.sh
+  fish -c "./omf-install.sh --path=~/.local/share/omf --config=~/.config/omf"
+  fish -c "omf install fzf nvm"
+  rm -f omf-install.sh
+
 
 
    #install greeting
@@ -49,24 +59,16 @@ setup_shell(){
   sudo rm -f  /etc/motd; sudo rm -rf  /etc/update-motd.d; touch ~/.hushlogin; 
 
 
-  # fish plugins config - goes into fish
-  curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install > omf-install.sh
-  chmox +x omf-install.sh
-  fish -c "./omf-install.sh --path=~/.local/share/omf --config=~/.config/omf"
-  fish -c "omf install fzf nvm"
-  rm -f omf-install.sh
-
-
    #starship prompt -- needs manual setup
-  sudo sh -c "$(curl -sS https://starship.rs/install.sh )"
+  sudo sh -c "$(curl -fsSL https://starship.rs/install.sh )"
+
+  #install prompt into fish shell
+  echo "starship init fish | source" >> ~/.config/fish/config.fish
 
   #install prompt into nu shell
   echo "mkdir ~/.cache/starship; starship init nu | save -f ~/.cache/starship/init.nu" >> /home/$USER/.config/nushell/env.nu
   echo "use ~/.cache/starship/init.nu" >> /home/$USER/.config/nushell/config.nu
   
-  #install prompt into fish shell
-  echo "starship init fish | source" >> ~/.config/fish/config.fish
-
  
 
 }
@@ -77,7 +79,8 @@ setup_docker(){
   curl -fsSL https://test.docker.com -o test-docker.sh; 
   sh test-docker.sh;
   sudo apt-get install -y uidmap;
-  dockerd-rootless-setuptool.sh install;
+  sudo -u ubuntu dockerd-rootless-setuptool.sh install
+  rm test-docker.sh
 }
 
 # first-time setup of root ssh user 

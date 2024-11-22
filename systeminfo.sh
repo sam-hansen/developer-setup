@@ -7,10 +7,10 @@
 system_info(){
 
     #user
-    echo -ne "\e[31m👤$(whoami) "
+    echo -ne "\e[31m👤 $(whoami) "
 
     #hostname
-    echo -ne "\e[91m🏠$(hostname)"
+    echo -ne "\e[91m🏠 $(hostname)"
 
     #top_process
     export TOP_PROC=$(ps -eo pcpu,comm --sort=-%cpu --no-headers \
@@ -19,7 +19,10 @@ system_info(){
 
     #disk_used
     export DISK_USED=$(df | grep '/$' | awk '{print $5}')
-    echo -ne "\e[35m 📁  $DISK_USED"
+    echo -ne "\e[35m 📁 $DISK_USED"
+
+    export RAM_USED=$(awk '/MemFree|MemTotal/ {a[$1]=$2/1024/1024} END {printf "%.0f/%.0fGB\n", a["MemFree:"], a["MemTotal:"]}' /proc/meminfo)
+    echo -ne "\e[35m 💾 $RAM_USED"
 
     # Get IP info or exit with error message
     INFO=$(wget -qO- -T1 ipinfo.io 2>/dev/null) || { echo -e "\033[31m ❌ No internet connection"; exit 1; }
