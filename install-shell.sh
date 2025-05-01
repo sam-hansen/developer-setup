@@ -15,7 +15,8 @@ setup_shell(){
   echo -e '\n' | sudo add-apt-repository ppa:maveonair/helix-editor
   sudo apt update
 
-  sudo apt install -y fish neovim  git wget curl helix 
+  
+  bash -c "$(sudo apt install -y fish neovim  git wget curl helix )"
 
 
   #bun 
@@ -55,12 +56,11 @@ setup_shell(){
   yes  | sudo bash -c "$(curl -fsSL https://pacstall.dev/q/install || wget -q https://pacstall.dev/q/install -O -)"
 
   #clear default greeting
-  fish -c "set -U fish_greeting \"\""
   sudo rm -f  /etc/motd; sudo rm -rf  /etc/update-motd.d; touch ~/.hushlogin; 
 
 
    #starship prompt -- needs manual setup
-  sudo sh -c "$(curl -fsSL https://starship.rs/install.sh )"
+  sudo sh -c "$(curl -fsSL https://starship.rs/install.sh)" -- -y
 
   #install prompt into fish shell
   echo "starship init fish | source" >> ~/.config/fish/config.fish
