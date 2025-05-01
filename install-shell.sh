@@ -26,7 +26,7 @@ setup_shell(){
   bash -c "$(curl -sS https://get.volta.sh )"
 
   source ~/.bashrc
-  bash -c "volta install node"
+  bash -c "~/.volta/bin/volta install node"
 
   #install nushell
   npm i -g pnpm nushell
@@ -35,13 +35,6 @@ setup_shell(){
   git clone https://github.com/LazyVim/starter ~/.config/nvim 
 
 
-
-  # fish plugins config - goes into fish
-  curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install > omf-install.sh
-  chmod +x omf-install.sh
-  fish -c "./omf-install.sh --path=~/.local/share/omf --config=~/.config/omf"
-  fish -c "omf install fzf nvm"
-  rm -f omf-install.sh
 
 
 
@@ -70,6 +63,13 @@ setup_shell(){
   echo "use ~/.cache/starship/init.nu" >> /home/$USER/.config/nushell/config.nu
   
  
+
+  # fish plugins config - goes into fish
+  curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install > omf-install.sh
+  chmod +x omf-install.sh
+  fish -c "./omf-install.sh --path=~/.local/share/omf --config=~/.config/omf"
+  fish -c "omf install fzf nvm"
+  rm -f omf-install.sh
 
 }
 
