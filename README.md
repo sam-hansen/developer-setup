@@ -26,17 +26,19 @@ Setup server shell with `fish`, `nvim`, `nu`, `bun`, `node`, `helix`, `starship 
 
 Launch Ubuntu server instance, connect and on first time login run `sudo passwd $USER` to set password. You need to enter sudo password when running this setup script:
 
-```
-    bash -c "$( wget -q https://raw.githubusercontent.com/vtempest/server-shell-setup/refs/heads/master/install-shell.sh -O -)"
+```bash
+bash -c "$( wget -q https://raw.githubusercontent.com/vtempest/server-shell-setup/refs/heads/master/install-shell.sh -O -)"
 
 ```
 
 ## Example: System Info When Opening Shell
 
 ```bash
-👤 deck 🏠 steamdeck 📁 90% 💾 2/14GB 🔝 6% cursor ⏱️  1d 7h 18m 🌎 174.194.193.230 📍 San Jose 🔗 http://230.sub-174-194-193.myvzw.com 👮 Verizon Business ⚡ SteamOS 📈 AMD Custom APU 0405 💻 Jupiter 🔧 6.11.11-valve12-1-neptune-611-g517a46b477e1 🐚 fish 🚀 npm pip docker nvim bun🔌 57343stea46583stea27060stea40279stea27036stea8080stea 📦 docker-node
+
+    👤 deck 🏠 steamdeck 📁 90% 💾 2/14GB 🔝 6% cursor ⏱️  1d 7h 18m 🌎 174.194.193.230 📍 San Jose 🔗 http://230.sub-174-194-193.myvzw.com 👮 Verizon Business ⚡ SteamOS 📈 AMD Custom APU 0405 💻 Jupiter 🔧 6.11.11-valve12-1-neptune-611-g517a46b477e1 🐚 fish 🚀 npm pip docker nvim bun🔌 57343stea46583stea27060stea40279stea27036stea8080stea 📦 docker-node
 ```
 ```bash
+
 👤 u0_a365 🏠 localhost 📁 54% 💾 1/5GB 🔝 1% fish ⏱️ 4d 9h 19m 🌎 174.194.193.230 🌐 192.168.42.229 📍 San Jose 🔗 http://230.sub-174-194-193.myvzw.com 👮 Verizon Business ⚡ Android 13 📈 Kryo-4XX-Silver 💻 SM-G781U 🔧 4.19.113-27223811 🐚 nu 🚀 apt npm pip hx nvim
 ```
 

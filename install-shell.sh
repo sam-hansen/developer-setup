@@ -10,8 +10,10 @@
 #   bash -c "$( wget -q https://raw.githubusercontent.com/vtempest/server-shell-setup/refs/heads/master/install-shell.sh -O -)"
 #
 #   Interactive: sudo bash install-shell.sh
-#   Non-interactive: sudo bash install-shell.sh "fish,nvim,docker,node"
-#
+#  Headless: 
+#   bash -c "$( wget -q https://raw.githubusercontent.com/vtempest/server-shell-setup/refs/heads/master/install-shell.sh \"all\" -O -)"
+# SSH With Password:
+#  wget -qO- https://raw.githubusercontent.com/vtempest/server-shell-setup/refs/heads/master/install-shell.sh | bash -s -- ssh
 # Available components:
 #   - fish: Modern shell with auto-suggestions and improved syntax highlighting
 #   - nushell: Data-oriented shell with structured data handling
@@ -87,20 +89,20 @@ install_base_deps() {
     OS=$(detect_os)
     case "$OS" in
     ubuntu | debian)
-        apt update
-        apt install -y git wget curl fzf hostname python3 python3-pip lscpu
+        sudo apt update
+        sudo apt install -y git wget curl fzf hostname python3 python3-pip util-linux
         print_success "Base dependencies installed"
         ;;
     fedora)
-        dnf install -y git wget curl fzf python3 python3-pip lscpu
+        sudo dnf install -y git wget curl fzf python3 python3-pip util-linux
         print_success "Base dependencies installed"
         ;;
     arch)
-        pacman -Sy --noconfirm git wget curl fzf inetutils python python-pip
+        sudo pacman -Sy --noconfirm git wget curl fzf inetutils python python-pip
         print_success "Base dependencies installed"
         ;;
     alpine)
-        apk add git wget curl fzf python3 py3-pip lscpu
+        sudo apk add git wget curl fzf python3 py3-pip util-linux
         print_success "Base dependencies installed"
         ;;
     android)
@@ -136,19 +138,18 @@ install_fish() {
     case "$OS" in
     ubuntu | debian)
         if command_exists add-apt-repository; then
-            add-apt-repository -y ppa:fish-shell/release-3
+            sudo add-apt-repository -y ppa:fish-shell/release-3
         fi
-         update
-        apt install -y fish
+        sudo apt install -y fish
         ;;
     fedora)
-        dnf install -y fish
+        sudo dnf install -y fish
         ;;
     arch)
-        pacman -Sy --noconfirm fish
+        sudo pacman -Sy --noconfirm fish
         ;;
     alpine)
-        apk add fish
+        sudo apk add fish
         ;;
     darwin)
         brew install fish
@@ -158,7 +159,7 @@ install_fish() {
         ;;
     esac
     # change default shell to fish
-    chsh -s $(which fish) $USER
+    sudo chsh -s $(which fish) $USER
 
     # Setup fish plugins
     print_msg "$YELLOW" "Setting up Fish plugins (oh-my-fish, fzf, z, pisces)"
@@ -171,6 +172,7 @@ install_fish() {
 
     # Create Fish config if it doesn't exist
     mkdir -p ~/.config/fish
+    mkdir -p ~/.config/fish/functions
     touch ~/.config/fish/config.fish
 
 
@@ -460,17 +462,17 @@ install_helix() {
         if command_exists add-apt-repository; then
              add-apt-repository -y ppa:maveonair/helix-editor
         fi
-         apt update
-         apt install -y helix
+        sudo apt update
+        sudo apt install -y helix
         ;;
     fedora)
-         dnf install -y helix
+        sudo dnf install -y helix
         ;;
     arch)
-         pacman -Sy --noconfirm helix
+        sudo pacman -Sy --noconfirm helix
         ;;
     alpine)
-         apk add helix
+        sudo apk add helix
         ;;
     darwin)
         brew install helix
@@ -500,12 +502,10 @@ install_node() {
         # Source bashrc to make volta available
         source ~/.bashrc
 
-        if command_exists volta; then
-            ~/.volta/bin/volta install node
-            print_success "Node.js installed with Volta"
-        else
-            print_error "Volta installation failed"
-        fi
+        ~/.volta/bin/volta install node
+        print_success "Node.js installed with Volta"
+
+        fish -c "fish_add_path ~/.volta/bin"
 
     fi
 
@@ -529,7 +529,7 @@ install_pacstall() {
 
     OS=$(detect_os)
     if [[ "$OS" == "ubuntu" || "$OS" == "debian" ]]; then
-        bash -c "$(curl -fsSL https://pacstall.dev/q/install || wget -q https://pacstall.dev/q/install -O -)"
+        echo "yes" | bash -c "$(curl -fsSL https://pacstall.dev/q/install || wget -q https://pacstall.dev/q/install -O -)"
         print_success "Pacstall installed"
     else
         print_error "Pacstall is only available for Ubuntu/Debian"
@@ -548,16 +548,16 @@ install_docker() {
     OS=$(detect_os)
     case "$OS" in
     ubuntu | debian)
-         apt-get install -y uidmap
+        sudo apt-get install -y uidmap
         ;;
     fedora)
-         dnf install -y uidmap
+        sudo dnf install -y uidmap
         ;;
     arch)
-         pacman -S --noconfirm uidmap
+        sudo pacman -S --noconfirm uidmap
         ;;
     alpine)
-         apk add uidmap
+        sudo apk add uidmap
         ;;
     esac
 
@@ -640,9 +640,9 @@ install_systeminfo() {
     fi
 
     # Clear default greeting
-    rm -f /etc/motd
-    rm -rf /etc/update-motd.d
     touch ~/.hushlogin
+    sudo rm -f /etc/motd
+    sudo rm -rf /etc/update-motd.d
 
     print_success "System info greeting installed"
 }
@@ -774,6 +774,7 @@ install_components() {
         docker) install_docker ;;
         starship) install_starship ;;
         systeminfo) install_systeminfo ;;
+        ssh) enable_ssh_with_password ;;
         sudo) enable_sudo_without_password ;;
         esac
     done
@@ -784,17 +785,17 @@ install_components() {
         echo "- $component"
     done
 
-    print_msg "$YELLOW" "You may need to log out and log back in for all changes to take effect."
-    print_msg "$YELLOW" "To change your default shell to Fish, run: chsh -s $(which fish)"
+    # If fish is installed, open it
+    if [ -x "$(command -v fish)" ]; then
+        exec fish
+    fi
 }
 
 # Main function
 main() {
     # Check if running as root
-    if [ "$(id -u)" -eq 0 ]; then
-        print_error "This script should not be run as root directly."
-        print_msg "$YELLOW" "Instead, use: sudo bash $0"
-        exit 1
+    if [ "$(id -u)" -ne 0 ]; then
+        print_msg "$YELLOW" "Installing for current user"
     fi
 
     # Non-interactive mode with command line arguments
