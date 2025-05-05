@@ -791,9 +791,9 @@ install_components() {
 # Main function
 main() {
     # Check if running as root
-    if [ "$(id -u)" -eq 0 ]; then
-        print_error "This script should not be run as root directly."
-        print_msg "$YELLOW" "Instead, use: sudo bash $0"
+    if [ "$(id -u)" -ne 0 ]; then
+        print_error "This script must be run as root."
+        print_msg "$YELLOW" "Please run: sudo bash $0"
         exit 1
     fi
 
