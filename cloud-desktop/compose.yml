@@ -1,0 +1,52 @@
+services:
+
+  vnc:
+    build:
+      context: .
+      dockerfile: Dockerfile.vnc
+    image: local/kasm-arch-kde-sunshine:latest
+    privileged: true
+    environment:
+      - DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus
+      - KASM_PORT=443
+    security_opt:
+      - seccomp:unconfined
+    volumes:
+      - /run/user/1000:/run/user/1000
+      - /tmp/.X11-unix:/tmp/.X11-unix
+      - ./config:/config    # Persistent config/data
+      - /var/run/docker.sock:/var/run/docker.sock # Optional: Docker-in-Docke
+    shm_size: "1gb"
+    ports:
+      - "47984-47990:47984-47990/tcp"
+      - "48010:48010"
+      - "47998-48000:47998-48000/udp"
+      - 3000:3000
+    restart: unless-stopped
+    networks:
+      - caddy
+    labels:
+      caddy: airesearch.wiki
+      caddy.reverse_proxy: "{{upstreams 3000}}"
+      caddy.basicauth.alex: $2a$05$9dXPNpehntVY08qVbFaZt.2C4Xqu9OgnDOM5aZhvQ.vPhDDhP8Tn.
+
+
+  caddy:
+    image: lucaslorentz/caddy-docker-proxy:ci-alpine
+    container_name: caddy
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    environment:
+      - CADDY_INGRESS_NETWORKS=caddy
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ~/.caddy_data:/data
+    networks:
+      - caddy
+networks:
+  caddy:
+    external: true
+
+

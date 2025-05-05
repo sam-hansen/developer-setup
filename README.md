@@ -27,7 +27,9 @@ Setup server shell with `vscode`, `nvim`, `nu`, `bun`, `node`, `helix`, `starshi
 Launch Ubuntu server instance, connect and on first time login run `sudo passwd $USER` to set password. You need to enter sudo password when running this setup script:
 
 ```bash
+
  bash -c "$( wget -q https://raw.githubusercontent.com/vtempest/server-shell-setup/refs/heads/master/install-shell.sh -O -)"
+
 ```
 
 ## Example: System Info When Opening Shell
