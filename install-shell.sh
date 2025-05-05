@@ -11,7 +11,7 @@
 #
 #   Interactive: sudo bash install-shell.sh
 #  Headless: 
-#   bash -c "$( wget -q https://raw.githubusercontent.com/vtempest/server-shell-setup/refs/heads/master/install-shell.sh \"all\" -O -)"
+#  wget -qO- https://raw.githubusercontent.com/vtempest/server-shell-setup/refs/heads/master/install-shell.sh | bash -s -- "all"
 # SSH With Password:
 #  wget -qO- https://raw.githubusercontent.com/vtempest/server-shell-setup/refs/heads/master/install-shell.sh | bash -s -- ssh
 # Available components:
@@ -112,7 +112,36 @@ install_base_deps() {
         print_success "Base dependencies installed"
         ;;
     arch)
+
+        # Install yay package manager
+        if ! command_exists yay; then
+            print_msg "$YELLOW" "Installing yay package manager..."
+            
+            # Initialize and populate pacman keys
+            sudo pacman-key --init
+            sudo pacman-key --populate archlinux
+            sudo pacman -Syu
+            sudo pacman -S archlinux-keyring
+
+            # Update system and install required tools
+            sudo pacman -Syu --noconfirm
+            sudo pacman -S --needed --noconfirm base-devel git gcc glibc
+
+            # Install yay from AUR
+            cd /tmp
+            git clone https://aur.archlinux.org/yay-bin.git
+            cd yay-bin
+            makepkg -si --noconfirm
+
+            # Clean up installation files
+            cd ..
+            rm -rf yay-bin
+            
+            print_success "yay package manager installed"
+        fi
+
         sudo pacman -Sy --noconfirm git wget curl fzf inetutils python python-pip
+
         print_success "Base dependencies installed"
         ;;
     alpine)
@@ -599,7 +628,7 @@ install_starship() {
     if [[ "$OS" == "android" ]]; then
         pkg i -y starship
     else 
-        sh -c "$(curl -fsSL https://starship.rs/install.sh)" -- -y
+        sudo sh -c "$(curl -fsSL https://starship.rs/install.sh)" -- -y
     fi
 
     # Configure for bash
@@ -632,6 +661,8 @@ install_systeminfo() {
         wget https://raw.githubusercontent.com/vtempest/server-shell-setup/refs/heads/master/systeminfo.sh -O ~/.config/systeminfo.sh
     fi
     chmod +x ~/.config/systeminfo.sh
+
+    echo 'set -U fish_greeting ""' >>~/.config/fish/config.fish
 
     # Add to bash if not already there
     if ! grep -q "bash ~/.config/systeminfo.sh" ~/.bashrc; then

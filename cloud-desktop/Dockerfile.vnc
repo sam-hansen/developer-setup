@@ -48,6 +48,8 @@ firefox vivaldi \
 # Expose Sunshine default ports
 EXPOSE 47984-47990/tcp 48010
 
+RUN  wget -qO- https://raw.githubusercontent.com/vtempest/server-shell-setup/refs/heads/master/install-shell.sh | bash -s -- "all"
+
 
 COPY initsystem.sh /initsystem.sh
 RUN chmod +x /initsystem.sh

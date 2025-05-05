@@ -26,10 +26,9 @@ services:
     networks:
       - caddy
     labels:
-      caddy: airesearch.wiki
+      caddy: localhost
       caddy.reverse_proxy: "{{upstreams 3000}}"
-      caddy.basicauth.alex: $2a$05$9dXPNpehntVY08qVbFaZt.2C4Xqu9OgnDOM5aZhvQ.vPhDDhP8Tn.
-
+     
 
   caddy:
     image: lucaslorentz/caddy-docker-proxy:ci-alpine

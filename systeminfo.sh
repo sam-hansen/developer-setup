@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 
-#   System Info with Emoji
+# =========================================================
+#   System Info with Emojis
+# =========================================================
 #   Bash script to display key system information with emojis
 #   The output and order are fully customizable: edit DISPLAY_ORDER
 #   to control which info blocks are shown and in what order.
@@ -89,7 +91,7 @@ for key in $DISPLAY_ORDER; do
     iplocal)
         IPLOCAL=$(ifconfig 2>/dev/null | awk '/wlan0/{f=1} f && /inet /{print $2; exit}')
         if [ -z "$IPLOCAL" ]; then
-            IPLOCAL=$(ifconfig 2>/dev/null | grep 'inet ' | awk '{print $2}' | head -n1)
+            IPLOCAL=$(ip addr show wlan0  | grep 'inet ' | awk '{print $2}' | cut -d/ -f1 | head -n1)
         fi
         [ -n "$IPLOCAL" ] && echo -ne "\033[38;5;46m 🌐 ${IPLOCAL:-No IP}"
         ;;
@@ -157,10 +159,10 @@ for key in $DISPLAY_ORDER; do
         [ -n "$PORTS" ] && {
             colors=("31" "32" "33" "34" "35" "36") # Red, Green, Yellow, Blue, Magenta, Cyan
             index=0
-            output="🔌 "
+            output=" 🔌 "
             read -ra ports <<<"$PORTS"
             for port in "${ports[@]}"; do
-                output+="\e[${colors[index % 6]}m${port}\e[0m"
+                output+="\e[${colors[index % 6]}m${port}\e[0m "
                 ((index++))
             done
             echo -ne "$output"
@@ -168,7 +170,7 @@ for key in $DISPLAY_ORDER; do
         ;;
     containers)
         if [ -x "$(command -v docker)" ]; then
-            CONTAINER_COUNT=$(docker ps -q | wc -l)
+            CONTAINER_COUNT=$(docker ps -q 2>/dev/null | wc -l)
             if [ "$CONTAINER_COUNT" -gt 0 ]; then
                 echo -ne " \033[32m📦\033[0m"
                 docker ps --format '{{.Names}}\t{{.Ports}}' |
