@@ -107,7 +107,7 @@ install_base_deps() {
         # make repo sources faster
         for f in $PREFIX/etc/apt/sources.list $PREFIX/etc/apt/sources.list.d/*.sources; do [ -f "$f" ] && sed -i 's|https://packages.termux.dev|https://gnlug.org/pub/termux|g' "$f"; done && pkg update
         yes | pkg up -y
-        pkg i -y tsu openssl 
+        pkg i -y tsu openssl openssh
         pkg i -y git wget curl fzf python
         print_success "Base dependencies installed via Termux"
         ;;
@@ -612,8 +612,11 @@ install_systeminfo() {
     print_header "Installing System Info Greeting"
     print_msg "$YELLOW" "Setting up a system information display on shell login"
 
-    wget http://192.168.42.97:8000/systeminfo.sh -O ~/.config/systeminfo.sh
-    # wget https://raw.githubusercontent.com/vtempest/server-shell-setup/refs/heads/master/systeminfo.sh -O ~/.config/systeminfo.sh
+    if [ "$ENV" = "dev" ]; then
+        wget http://192.168.42.97:8000/systeminfo.sh -O ~/.config/systeminfo.sh
+    else
+        wget https://raw.githubusercontent.com/vtempest/server-shell-setup/refs/heads/master/systeminfo.sh -O ~/.config/systeminfo.sh
+    fi
     chmod +x ~/.config/systeminfo.sh
 
     # Add to bash if not already there

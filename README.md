@@ -20,24 +20,24 @@
 
 > If you hold a unix shell up to your ear, can you hear the C?
 
-Setup server shell with `vscode`, `nvim`, `nu`, `bun`, `node`, `helix`, `starship prompt`, `pacstall installer`,  and other dev tools. 
+Setup server shell with `fish`, `nvim`, `nu`, `bun`, `node`, `helix`, `starship prompt`, `systeminfo`, `pacstall installer`,  `docker`,  and other dev tools. Fish aliases: `service_manager`, `killport`, and `search [query]`.
 
 ## Install: Bash Script to Setup Shell 
 
 Launch Ubuntu server instance, connect and on first time login run `sudo passwd $USER` to set password. You need to enter sudo password when running this setup script:
 
-```bash
-
- bash -c "$( wget -q https://raw.githubusercontent.com/vtempest/server-shell-setup/refs/heads/master/install-shell.sh -O -)"
+```
+    bash -c "$( wget -q https://raw.githubusercontent.com/vtempest/server-shell-setup/refs/heads/master/install-shell.sh -O -)"
 
 ```
 
 ## Example: System Info When Opening Shell
 
 ```bash
-👤 user@XPS15 🔝  0% fish 📁  1% 🌎  130.212.146.39 👮 California State University 
-📈  Intel(R) Core(TM) i5-7300HQ CPU @ 2.50GHz 💻  Debian GNU/Linux 12 (bookworm) 
-🔧  5.15.90.1-microsoft-standard-WSL2 🚀  apt docker git  npm pip
+👤 deck 🏠 steamdeck 📁 90% 💾 2/14GB 🔝 6% cursor ⏱️  1d 7h 18m 🌎 174.194.193.230 📍 San Jose 🔗 http://230.sub-174-194-193.myvzw.com 👮 Verizon Business ⚡ SteamOS 📈 AMD Custom APU 0405 💻 Jupiter 🔧 6.11.11-valve12-1-neptune-611-g517a46b477e1 🐚 fish 🚀 npm pip docker nvim bun🔌 57343stea46583stea27060stea40279stea27036stea8080stea 📦 docker-node
+```
+```bash
+👤 u0_a365 🏠 localhost 📁 54% 💾 1/5GB 🔝 1% fish ⏱️ 4d 9h 19m 🌎 174.194.193.230 🌐 192.168.42.229 📍 San Jose 🔗 http://230.sub-174-194-193.myvzw.com 👮 Verizon Business ⚡ Android 13 📈 Kryo-4XX-Silver 💻 SM-G781U 🔧 4.19.113-27223811 🐚 nu 🚀 apt npm pip hx nvim
 ```
 
 ## Reference Docs: 🪄 Magic Spells for Open Sourcery 
