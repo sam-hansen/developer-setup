@@ -48,8 +48,22 @@ detect_os() {
         echo "android"
         return
     fi
-    . /etc/os-release
-    echo "$ID"
+    if [ -f /etc/pacman.conf ]; then
+        echo "arch"
+        return
+    fi
+    if command_exists apt; then
+        echo "ubuntu"
+    elif command_exists dnf; then
+        echo "fedora"
+    elif command_exists apk; then
+        echo "alpine"
+    elif command_exists pacman; then
+        echo "arch"
+    else
+        echo "unknown"
+    fi
+
 }
 
 # Print colored message

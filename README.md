@@ -26,8 +26,8 @@ Setup server shell with `fish`, `nvim`, `nu`, `bun`, `node`, `helix`, `starship 
 
 Launch Ubuntu server instance, connect and on first time login run `sudo passwd $USER` to set password. You need to enter sudo password when running this setup script:
 
-```
-    sudo bash -c "$( wget -q https://raw.githubusercontent.com/vtempest/server-shell-setup/refs/heads/master/install-shell.sh -O -)"
+```bash
+    bash -c "$( wget -q https://raw.githubusercontent.com/vtempest/server-shell-setup/refs/heads/master/install-shell.sh -O -)"
 
 ```
 
