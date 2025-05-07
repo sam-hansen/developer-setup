@@ -53,7 +53,7 @@ for key in $DISPLAY_ORDER; do
         ;;
     top_process)
         export TOP_PROC=$(ps -eo pcpu,comm --sort=-%cpu --no-headers |
-            head -1 | sed 's/\.[0-9]/%/' | awk '{$1=$1};1')
+            head -1 | sed 's/\.[0-9]/%/' | awk '{$1=$1};1' | awk -F'/' '{print $NF}')
         echo -ne "\e[38;5;213m 🔝 $TOP_PROC"
         ;;
     disk_used)
@@ -91,7 +91,7 @@ for key in $DISPLAY_ORDER; do
     iplocal)
         IPLOCAL=$(ifconfig 2>/dev/null | awk '/wlan0/{f=1} f && /inet /{print $2; exit}')
         if [ -z "$IPLOCAL" ]; then
-            IPLOCAL=$(ip addr show wlan0  | grep 'inet ' | awk '{print $2}' | cut -d/ -f1 | head -n1)
+            IPLOCAL=$(ip addr show 2>/dev/null | grep 'inet ' | awk '{print $2}' | tail -n +2 | cut -d/ -f1 | paste -sd' ' -)
         fi
         [ -n "$IPLOCAL" ] && echo -ne "\033[38;5;46m 🌐 ${IPLOCAL:-No IP}"
         ;;
@@ -117,12 +117,13 @@ for key in $DISPLAY_ORDER; do
         ;;
     os)
         export OS=$([ -f /etc/os-release ] && grep -oP "^NAME=\"\K[^\"]+" /etc/os-release)
+        export OS_VERSION=$(grep '^VERSION_ID=' /etc/os-release | cut -d'=' -f2 | tr -d '"')
 
         if command -v getprop >/dev/null 2>&1; then
             export OS="Android $(getprop ro.build.version.release)"
         fi
 
-        [ -n "$OS" ] && echo -ne "\e[38;5;39m ⚡ $OS"
+        [ -n "$OS" ] && echo -ne "\e[38;5;39m ⚡ $OS $OS_VERSION"
         ;;
     device)
         if command -v getprop >/dev/null 2>&1; then

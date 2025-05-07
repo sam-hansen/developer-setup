@@ -6,10 +6,7 @@
 # Use interactive menu to install top dev tools and shell.
 # Systems Supported: Android (Termux), macOS, Ubuntu/Debian, Fedora, Arch, Alpine
 #
-# Usage:
-#   bash -c "$( wget -q https://raw.githubusercontent.com/vtempest/server-shell-setup/refs/heads/master/install-shell.sh -O -)"
-#
-#   Interactive: sudo bash install-shell.sh
+# Usage: bash -c "$( wget -q https://raw.githubusercontent.com/vtempest/server-shell-setup/refs/heads/master/install-shell.sh -O -)"
 #  Headless: 
 #  wget -qO- https://raw.githubusercontent.com/vtempest/server-shell-setup/refs/heads/master/install-shell.sh | bash -s -- "all"
 # SSH With Password:
@@ -25,7 +22,6 @@
 #   - docker: Docker container platform with rootless mode
 #   - starship: Cross-shell customizable prompt
 #   - all: Install all components
-# =========================================================
 #
 #   Author: vtempest (2022-25) https://github.com/vtempest/Server-Shell-Setup/tree/master
 #   Published: 2025-05-04
@@ -104,11 +100,11 @@ install_base_deps() {
     case "$OS" in
     ubuntu | debian)
         sudo apt update
-        sudo apt install -y git wget curl fzf hostname python3 python3-pip util-linux
+        sudo apt install -y git wget curl fzf ripgrep hostname python3 python3-pip util-linux
         print_success "Base dependencies installed"
         ;;
     fedora)
-        sudo dnf install -y git wget curl fzf python3 python3-pip util-linux
+        sudo dnf install -y git wget curl fzf ripgrep python3 python3-pip util-linux
         print_success "Base dependencies installed"
         ;;
     arch)
@@ -140,20 +136,31 @@ install_base_deps() {
             print_success "yay package manager installed"
         fi
 
-        sudo pacman -Sy --noconfirm git wget curl fzf inetutils python python-pip
+        sudo pacman -Sy --noconfirm git wget curl fzf ripgrep inetutils python python-pip
 
         print_success "Base dependencies installed"
         ;;
     alpine)
-        sudo apk add git wget curl fzf python3 py3-pip util-linux
+        sudo apk add git wget curl fzf ripgrep python3 py3-pip util-linux
         print_success "Base dependencies installed"
         ;;
     android)
         # make repo sources faster
         for f in $PREFIX/etc/apt/sources.list $PREFIX/etc/apt/sources.list.d/*.sources; do [ -f "$f" ] && sed -i 's|https://packages.termux.dev|https://gnlug.org/pub/termux|g' "$f"; done && pkg update
-        yes | pkg up -y
-        pkg i -y tsu openssl openssh
-        pkg i -y git wget curl fzf python
+
+        pkg i -y git ripgrep wget curl fzf python openssl openssh proot-distro pulseaudio
+        
+        #ubuntu
+        proot-distro install ubuntu
+
+        wget https://raw.githubusercontent.com/LinuxDroidMaster/Termux-Desktops/main/scripts/proot_ubuntu/startxfce4_ubuntu.sh
+        chmod +x startxfce4_ubuntu.sh
+
+        proot-distro login ubuntu -- bash -c "apt update && apt upgrade -y && apt install sudo nano adduser -y && adduser ubuntu && adduser ubuntu sudo && echo 'ubuntu ALL=(ALL) NOPASSWD:ALL' | sudo tee /etc/sudoers.d/ubuntu && sudo chmod 0440 /etc/sudoers.d/ubuntu"
+
+        # ./startxfce4_ubuntu.sh
+
+
         print_success "Base dependencies installed via Termux"
         ;;
     darwin)
@@ -203,6 +210,8 @@ install_fish() {
     esac
     # change default shell to fish
     sudo chsh -s $(which fish) $USER
+    # might ask for password
+    chsh -s $(which fish) $USER
 
     # Setup fish plugins
     print_msg "$YELLOW" "Setting up Fish plugins (oh-my-fish, fzf, z, pisces)"
@@ -537,7 +546,6 @@ install_node() {
     OS=$(detect_os)
     if [[ "$OS" == "android" ]]; then
         pkg install -y nodejs
-        print_success "Node.js installed"
     else 
 
         bash -c "$(curl -fsSL https://get.volta.sh)"
@@ -546,13 +554,18 @@ install_node() {
         source ~/.bashrc
 
         ~/.volta/bin/volta install node
-        print_success "Node.js installed with Volta"
+        # print_success "Node.js installed with Volta"
 
         fish -c "fish_add_path ~/.volta/bin"
 
     fi
 
-    npm i -g pnpm yarn 
+    # Remove node_modules from termux if
+    if [ -d $PREFIX"/files/usr/lib/node_modules/" ]; then
+        rm -rf $PREFIX"/files/usr/lib/node_modules/"
+    fi
+
+    npm i -g pnpm yarn --force || true
 }
 
 # Install Bun
@@ -572,7 +585,7 @@ install_pacstall() {
 
     OS=$(detect_os)
     if [[ "$OS" == "ubuntu" || "$OS" == "debian" ]]; then
-        echo "yes" | bash -c "$(curl -fsSL https://pacstall.dev/q/install || wget -q https://pacstall.dev/q/install -O -)"
+        echo "yes" | sudo bash -c "$(curl -fsSL https://pacstall.dev/q/install || wget -q https://pacstall.dev/q/install -O -)"
         print_success "Pacstall installed"
     else
         print_error "Pacstall is only available for Ubuntu/Debian"
@@ -820,7 +833,6 @@ install_components() {
         starship) install_starship ;;
         systeminfo) install_systeminfo ;;
         ssh) enable_ssh_with_password ;;
-        sudo) enable_sudo_without_password ;;
         esac
     done
 
@@ -839,11 +851,11 @@ install_components() {
 # Main function
 main() {
     # Check if running as root
-    if [ "$(id -u)" -eq 0 ]; then
-        print_error "This script should not be run as root directly."
-        print_msg "$YELLOW" "Instead, use: sudo bash $0"
-        exit 1
-    fi
+    # if [ "$(id -u)" -eq 0 ]; then
+    #     print_error "This script should not be run as root directly."
+    #     print_msg "$YELLOW" "Instead, use: sudo bash $0"
+    #     exit 1
+    # fi
 
     # Non-interactive mode with command line arguments
     if [ -n "$1" ]; then
