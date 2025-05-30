@@ -46,7 +46,18 @@ install_apps() {
 }
 
 # ─── Usage Example ───────────────────────────────────────────────────────────
-# Define your app list (can also accept command-line arguments)
-app_list=(git neofetch htop)
+# Add the install alias to bash configuration
+if [ -f ~/.bashrc ]; then
+    echo "alias install='install_apps'" >> ~/.bashrc
+    source ~/.bashrc
+elif [ -f ~/.bash_profile ]; then
+    echo "alias install='install_apps'" >> ~/.bash_profile
+    source ~/.bash_profile
+else
+    echo "No bash configuration file found. Creating ~/.bashrc..."
+    echo "alias install='install_apps'" > ~/.bashrc
+    source ~/.bashrc
+fi
 
-install_apps "${app_list[@]}"
+# Example usage:
+# install git neofetch htop

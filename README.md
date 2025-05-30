@@ -21,13 +21,24 @@
 
 Setup server shell with `fish`, `nvim`, `nu`, `bun`, `node`, `helix`, `starship prompt`, `systeminfo`, `pacstall installer`,  `docker`,  and other dev tools. Fish aliases: `service_manager`, `killport`, and `search [query]`.
 
+**System Support**: Arch, Ubuntu/Debian, Android Termux, macOS, Fedora, Alpine 
+
 ## Install: Bash Script to Setup Shell
 
 Launch Ubuntu server instance, connect and on first time login run `sudo passwd $USER` to set password. You need to enter sudo password when running this setup script:
 
+Install (short URL to `install.shell.sh`):
 ```bash
-    bash -c "$( wget -q https://raw.githubusercontent.com/vtempest/server-shell-setup/refs/heads/master/install-shell.sh -O -)"
-
+bash -c "$( wget -q https://dub.sh/dev.sh -O -)"
+```
+Or custom args (no prompt):
+```bash
+wget dub.sh/dev.sh
+bash dev.sh "all"
+```
+Or specific apps only:
+```bash
+bash dev.sh "starship,docker,node"
 ```
 
 ## Example: System Info When Opening Shell

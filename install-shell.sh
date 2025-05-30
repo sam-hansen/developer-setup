@@ -23,9 +23,8 @@
 #   - starship: Cross-shell customizable prompt
 #   - all: Install all components
 #
-#   Author: vtempest (2022-25) https://github.com/vtempest/Server-Shell-Setup/tree/master
-#   Published: 2025-05-04
-#   License: MIT
+#   Author: vtempest (2022-25) https://github.com/vtempest/Server-Shell-Setup
+#   Published: 2025-05-04, License: MIT
 
 # Set text colors
 GREEN='\033[0;32m'
@@ -33,6 +32,9 @@ BLUE='\033[0;34m'
 YELLOW='\033[1;33m'
 RED='\033[0;31m'
 NC='\033[0m' # No Color
+
+# Exit script immediately if any command returns a non-zero status
+set -e
 
 # Detect operating system
 detect_os() {
@@ -100,11 +102,11 @@ install_base_deps() {
     case "$OS" in
     ubuntu | debian)
         sudo apt update
-        sudo apt install -y git wget curl fzf ripgrep hostname python3 python3-pip util-linux
+        sudo apt install -y git wget curl fzf ripgrep hostname python3 python3-pip util-linux unzip
         print_success "Base dependencies installed"
         ;;
     fedora)
-        sudo dnf install -y git wget curl fzf ripgrep python3 python3-pip util-linux
+        sudo dnf install -y git wget curl fzf ripgrep python3 python3-pip util-linux unzip
         print_success "Base dependencies installed"
         ;;
     arch)
@@ -136,19 +138,20 @@ install_base_deps() {
             print_success "yay package manager installed"
         fi
 
-        sudo pacman -Sy --noconfirm git wget curl fzf ripgrep inetutils python python-pip
+        sudo pacman -Sy --noconfirm git wget curl fzf ripgrep inetutils python python-pip unzip
 
         print_success "Base dependencies installed"
         ;;
     alpine)
-        sudo apk add git wget curl fzf ripgrep python3 py3-pip util-linux
+        sudo apk add git wget curl fzf ripgrep python3 py3-pip util-linux unzip
         print_success "Base dependencies installed"
         ;;
     android)
         # make repo sources faster
         for f in $PREFIX/etc/apt/sources.list $PREFIX/etc/apt/sources.list.d/*.sources; do [ -f "$f" ] && sed -i 's|https://packages.termux.dev|https://gnlug.org/pub/termux|g' "$f"; done && pkg update
-
-        pkg i -y git ripgrep wget curl fzf python openssl openssh proot-distro pulseaudio
+        pkg update
+        pkg upgrade -y
+        pkg i -y git ripgrep wget curl fzf python libcurl openssl openssh proot-distro pulseaudio unzip
         
         #ubuntu
         proot-distro install ubuntu
@@ -169,7 +172,7 @@ install_base_deps() {
             print_msg "$YELLOW" "Installing Homebrew..."
             /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
         fi
-        brew install git wget curl python
+        brew install git wget curl python unzip
         print_success "Base dependencies installed via Homebrew"
         ;;
     *)
@@ -324,6 +327,30 @@ install_fish() {
 end
 ' > ~/.config/fish/functions/service_manager.fish
 
+
+
+    # Add apt install as in
+    echo 'function setup
+        bash -c "$( wget -q https://raw.githubusercontent.com/vtempest/server-shell-setup/refs/heads/master/install-shell.sh -O -)"
+    end' >~/.config/fish/functions/setup.fish
+
+
+
+
+    # Add apt install as in
+    echo 'function in --wraps="sudo apt install" --description "alias in=sudo apt install"
+        sudo apt install $argv
+    end' >~/.config/fish/functions/in.fish
+
+    # Add editor as e
+    echo 'function e --wraps=nvim --description "alias e=nvim"
+        nvim $argv
+    end' >~/.config/fish/functions/e.fish
+
+    # Add del function
+    echo 'function del --wraps="sudo rm -rf" --description "alias del=sudo rm -rf"
+        sudo rm -rf $argv
+    end' >~/.config/fish/functions/del.fish
 
 
     # Add search function to Fish
@@ -616,6 +643,7 @@ install_docker() {
         sudo apk add uidmap
         ;;
     esac
+    curl -fsSL https://get.docker.com/rootless | sh
 
     # Setup rootless Docker
     dockerd-rootless-setuptool.sh install
@@ -743,7 +771,7 @@ show_menu() {
     echo " 11) Install Everything"
     echo ""
 
-    read -p "Enter your choice(s): " CHOICE
+    read -p "Enter your choice(s): " CHOICE < /dev/tty
 }
 
 # Parse comma-separated selection
@@ -832,6 +860,7 @@ install_components() {
         docker) install_docker ;;
         starship) install_starship ;;
         systeminfo) install_systeminfo ;;
+        sudo) enable_sudo_without_password ;;
         ssh) enable_ssh_with_password ;;
         esac
     done
