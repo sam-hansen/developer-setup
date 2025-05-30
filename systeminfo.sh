@@ -224,11 +224,31 @@ install_shell_greeting() {
     touch ~/.hushlogin
 
     # Ensure target directory exists
-    mkdir -p ~/.config/systeminfo
+    mkdir -p ~/.config
 
     # Copy this script (assumes it's named systeminfo.sh)
-    cp "$(realpath "$0")" ~/.config/systeminfo/systeminfo.sh
+    cp "$(realpath "$0")" ~/.config/systeminfo.sh
 
+
+    # Add to bash if not already there
+    if ! grep -q "bash ~/.config/systeminfo.sh" ~/.bashrc; then
+        echo "bash ~/.config/systeminfo.sh" >>~/.bashrc
+    fi
+
+    # Add to fish if config exists and line not already present
+    if [ -f "$HOME/.config/fish/config.fish" ]; then
+        if ! grep -q "bash ~/.config/systeminfo.sh" ~/.config/fish/config.fish; then
+            echo 'set -U fish_greeting ""' >>~/.config/fish/config.fish
+            echo "bash ~/.config/systeminfo.sh" >>~/.config/fish/config.fish
+        fi
+    fi
+    # Add to nushell if config exists
+    if [ -f "$HOME/.config/nushell/config.nu" ]; then
+        if ! grep -q "bash ~/.config/systeminfo.sh" ~/.config/nushell/config.nu; then
+            echo '$env.config.show_banner = false' >>~/.config/nushell/config.nu
+            echo "bash ~/.config/systeminfo.sh" >>~/.config/nushell/config.nu
+        fi
+    fi
     echo "Shell greeting installed!"
 }
 
