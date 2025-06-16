@@ -592,7 +592,7 @@ install_node() {
         rm -rf $PREFIX"/files/usr/lib/node_modules/"
     fi
 
-    npm i -g pnpm yarn --force || true
+    npm i -g pnpm yarn git0 vite turbo --force || true
 }
 
 # Install Bun
