@@ -19,37 +19,32 @@
 
 > If you hold a unix shell up to your ear, can you hear the C?
 
-Setup server shell with `fish`, `nvim`, `nu`, `bun`, `node`, `helix`, `starship prompt`, `systeminfo`, `pacstall installer`,  `docker`,  and other dev tools. Fish aliases: `service_manager`, `killport`, and `search [query]`.
+Setup server shell with `fish`, `nvim`, `nu`, `bun`, `node`, `helix`, `starship prompt`, `git0`, `systeminfo`, `pacstall installer`,  `docker`,  and other dev tools. Fish aliases: `service_manager`, `killport`, and `search [query]`.
 
 **System Support**: Arch, Ubuntu/Debian, Android Termux, macOS, Fedora, Alpine 
 
 ## Install: Bash Script to Setup Shell
 
-Launch Ubuntu server instance, connect and on first time login run `sudo passwd $USER` to set password. You need to enter sudo password when running this setup script:
+Launch Linux server instance, connect and on first time login you will need to run `sudo passwd` to set root password and  `sudo passwd $USER` to set non-root password. You will need sudo password when running this setup script:
 
-Install (short URL to `install.shell.sh`):
+**Install Interactive Menu** (short URL to `./install-shell.sh`):
 ```bash
-wget -qO- https://dub.sh/dev.sh | bash
-```
-Or custom args:
-```bash
-wget dub.sh/dev.sh
-bash dev.sh #prompt which to install
-```
-Install all automated:
-```bash
-bash dev.sh all #install all
-```
-Or specific apps only:
-```bash
-bash dev.sh starship,docker,node
+wget -qO- dub.sh/dev.sh | bash
 ```
 
+**Install all automated:**
+```bash
+ wget -qO- dub.sh/dev.sh | bash -s -- all
+```
+**Install specific apps only:**
+```bash
+ wget -qO- dub.sh/dev.sh | bash -s -- starship,docker,node
+```
 
 **Install Node with Volta** (no sudo permission issues)
 
 ```
-wget -qO- https://dub.sh/getnode | bash
+wget -qO- dub.sh/getnode | bash
 ```
 
 ## Example: System Info When Opening Shell
@@ -63,6 +58,7 @@ wget -qO- https://dub.sh/getnode | bash
 - [nushell Docs](https://www.nushell.sh/book/)
 - [Fish Features Overview](https://medium.com/the-glitcher/fish-shell-3ec1a6cc6128)
 - [Fish Playground](https://rootnroll.com/d/fish-shell/)
+- [git0 Installer](https://git0.js.org/)
 - [Bun.js Runtime Docs](https://bun.sh/docs)
 - [Node.js Best Packages](https://github.com/sindresorhus/awesome-nodejs)
 - [Volta Node Installer](https://docs.volta.sh/guide/)
