@@ -12,12 +12,10 @@ GREEN='\033[0;32m'
 NC='\033[0m' # No Color
 
 # Install Volta with error handling
-printf "${GREEN}Installing Volta...${NC}"
 if ! curl -sSf https://get.volta.sh | bash >/dev/null 2>&1; then
     printf "\n${RED}Error: Volta installation failed${NC}\n"
     exit 1
 fi
-printf " ${GREEN}Done!${NC}\n"
 
 # Configure environment for current session
 export VOLTA_HOME="$HOME/.volta"
@@ -37,19 +35,16 @@ FISH_CONFIG="$HOME/.config/fish/config.fish"
 if [ -f "$BASH_RC" ]; then
     append_if_missing "$BASH_RC" 'export VOLTA_HOME="$HOME/.volta"'
     append_if_missing "$BASH_RC" 'export PATH="$VOLTA_HOME/bin:$PATH"'
-    printf "${GREEN}Configured Volta for Bash${NC}\n"
 fi
 
 if [ -f "$ZSH_RC" ]; then
     append_if_missing "$ZSH_RC" 'export VOLTA_HOME="$HOME/.volta"'
     append_if_missing "$ZSH_RC" 'export PATH="$VOLTA_HOME/bin:$PATH"'
-    printf "${GREEN}Configured Volta for Zsh${NC}\n"
 fi
 
 if [ -f "$FISH_CONFIG" ]; then
     append_if_missing "$FISH_CONFIG" 'set -gx VOLTA_HOME $HOME/.volta'
     append_if_missing "$FISH_CONFIG" 'set -gx PATH $VOLTA_HOME/bin $PATH'
-    printf "${GREEN}Configured Volta for Fish${NC}\n"
 fi
 
 # Node.js installation with spinner
@@ -79,3 +74,7 @@ if [ $INSTALL_EXIT -ne 0 ]; then
 else
     printf "\b${GREEN}Done!${NC}\n"
 fi
+
+# Reload the current shell
+printf "${GREEN}Reloading shell...${NC}\n"
+exec $SHELL

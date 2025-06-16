@@ -29,7 +29,7 @@ Launch Ubuntu server instance, connect and on first time login run `sudo passwd 
 
 Install (short URL to `install.shell.sh`):
 ```bash
-bash -c "$( wget -q https://dub.sh/dev.sh -O -)"
+wget -qO- https://dub.sh/dev.sh | bash
 ```
 Or custom args:
 ```bash
@@ -43,6 +43,13 @@ bash dev.sh all #install all
 Or specific apps only:
 ```bash
 bash dev.sh starship,docker,node
+```
+
+
+**Install Node with Volta** (no sudo permission issues)
+
+```
+wget -qO- https://dub.sh/getnode | bash
 ```
 
 ## Example: System Info When Opening Shell
