@@ -19,33 +19,15 @@
 
 > If you hold a unix shell up to your ear, can you hear the C?
 
-Setup server shell with `fish`, `nvim`, `nu`, `bun`, `node`, `helix`, `starship prompt`, `git0`, `systeminfo`, `pacstall installer`,  `docker`,  and other dev tools. Fish aliases: `service_manager`, `killport`, and `search [query]`.
+Setup server shell with `vscode`, `nvim`, `nu`, `bun`, `node`, `helix`, `starship prompt`, `pacstall installer`,  and other dev tools. 
 
-**System Support**: Arch, Ubuntu/Debian, Android Termux, macOS, Fedora, Alpine 
+## Install: Bash Script to Setup Shell 
 
-## Install: Bash Script to Setup Shell
-
-Launch Linux server instance, connect and on first time login you will need to run `sudo passwd` to set root password and  `sudo passwd $USER` to set non-root password. You will need sudo password when running this setup script:
-
-**Install Interactive Menu** (short URL to `./install-shell.sh`):
 ```bash
-wget -qO- dub.sh/dev.sh | bash
+sudo bash -c "$( wget -q https://raw.githubusercontent.com/sam-hansen/developer-setup/refs/heads/master/install-shell.sh -O -)"
 ```
 
-**Install all automated:**
-```bash
- wget -qO- dub.sh/dev.sh | bash -s -- all
-```
-**Install specific apps only:**
-```bash
- wget -qO- dub.sh/dev.sh | bash -s -- starship,docker,node
-```
-
-**Install Node with Volta** (no sudo permission issues)
-
-```
-wget -qO- dub.sh/getnode | bash
-```
+Note: Launch Ubuntu server instance, connect and on first time login run `sudo passwd $USER` to set password. You need to enter sudo password when running this setup
 
 ## Example: System Info When Opening Shell
 
@@ -72,3 +54,20 @@ wget -qO- dub.sh/getnode | bash
 - [gh github cli](https://cli.github.com/manual/gh)
 - [DevDocs.io](https://devdocs.io/)
 - [Terminal Best Tools](https://github.com/k4m4/terminals-are-sexy)
+
+### Zsh
+
+- [Docs](https://wiki.archlinux.org/index.php/zsh)
+- [Plugins](https://github.com/unixorn/awesome-zsh-plugins)
+
+### Oh-my-zsh
+
+- [Docs](https://github.com/robbyrussell/oh-my-zsh/wiki/Cheatsheet)
+- [Plugins](https://github.com/robbyrussell/oh-my-zsh/wiki/Plugins-Overview)
+- [Themes](https://github.com/robbyrussell/oh-my-zsh/wiki/themes)
+
+### Hyper
+
+- [Docs](https://hyper.is/#installation)
+- [Plugins](https://github.com/bnb/awesome-hyper)
+- [Themes](https://hyperthemes.matthi.coffee/)
